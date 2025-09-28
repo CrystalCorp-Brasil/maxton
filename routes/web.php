@@ -1,7 +1,6 @@
 <?php
+    use Illuminate\Support\Facades\File;
 
-use Illuminate\Support\Facades\Route;
-
-Route::get('/', function () {
-    return view('welcome');
-});
+    foreach(File::allFiles(__DIR__.'/*') as $route_file){
+        require $route_file->getPathname();
+    }
