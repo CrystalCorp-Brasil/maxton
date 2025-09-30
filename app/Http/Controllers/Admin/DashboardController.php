@@ -2,58 +2,35 @@
     namespace App\Http\Controllers\Admin;
 
     use App\Http\Controllers\Controller;
-    use App\Http\Requests\ProfileUpdateRequest;
-    use App\Models\User;
-    use Illuminate\Http\{RedirectResponse,Request};
-    use Illuminate\Support\Facades\{Auth,Redirect};
+    use App\Models\{Category,User};
+    use Illuminate\Http\{Request};
+    use Illuminate\Support\Facades\{Auth, Redirect};
     use Illuminate\View\View;
 
     class DashboardController extends Controller {
         public function dashboard(Request $request): View {
             $user = Auth::user();
-            return view('admin/profile/index', \compact('user'));
+            return view('admin/dashboard/index', \compact('user'));
         }
 
-        public function edit(Request $request): View {
-            $user = $request->user();
-            return view('admin/profile/edit', compact('user'));
+        public function category(): View {
+            $cats = Category::all();
+            return view('admin/categories/index', \compact('cats'));
         }
 
-        public function update(ProfileUpdateRequest $request, $id): RedirectResponse {
-            $request->user()->fill($request->validated());
-            $fileImg = User::find($id);
-            if($request->hasFile('image')) {
-                if($fileImg->image && file_exists(public_path($fileImg->image))){
-                    unlink(public_path($fileImg->image));
-                }
-                $file = $request->file('image');
-                $fileImg = $request->user()->username.'.'.$file->getClientOriginalExtension();
-                $request->user()->image = 'uploads/users/'.$id.'/'.$fileImg;
-                $file->move(public_path('uploads/users/'.$id), $fileImg);
-            }
-
-            if ($request->user()->isDirty('email')) {
-                $request->user()->email_verified_at = null;
-            }
-            $request->user()->save();
-            return Redirect::route('dashboard')->with('success','Alteração efetuada com sucesso!');
+        public function storeCategory(Request $request){
+            $request->validate(['category' => ['required','string','max:255'],]);
+            $cat = Category::create([
+                'category' => $request->category
+            ]);
+            return Redirect::route('category.index')->with('success','Categoria cadastrada com sucesso!');
         }
-
-        public function delete(Request $request): View {
-            return view('admin/profile/delete', ['user'=>$request->user()]);
+        public function users(): View {
+            $users = User::all();
+            return view('admin/users/index', \compact('users'));
         }
-
-        public function destroy(Request $request): RedirectResponse {
-            $request->validateWithBag('userDeletion', ['password' => ['required', 'current_password'],]);
-            $user = $request->user();
-            $imagePath = public_path($user->image);
-            if (file_exists($imagePath)) {
-                unlink($imagePath);
-            }
-            Auth::logout();
-            $user->delete();
-            $request->session()->invalidate();
-            $request->session()->regenerateToken();
-            return Redirect::to('/')->with('success','Exclusão feita com sucesso!');
+        public function userShow($id): View {
+            $user = User::find($id);
+            return view('admin/users/show', \compact('user'));
         }
     }

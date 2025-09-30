@@ -18,7 +18,10 @@
 /public/hot
 /public/images
 /public/js
+/public/models
+/public/plugins
 /public/storage
+/public/uploads
 /public/webfonts
 /storage/*.key
 /storage/pail

@@ -1,4 +1,4 @@
-@extends('layouts.adminLayout',['headTitle'=>'Autenticação','pageActive'=>'auth'])
+@extends('admin.layouts.layout',['headTitle'=>'Autenticação','pageActive'=>'auth','classBody'=>'pace-done','mainClass'=>''])
 @section('content')
         <div class="auth-layout-wrap" style="background-image: url({{ asset('images/BGHome.jpg') }})">
             <div class="auth-content">

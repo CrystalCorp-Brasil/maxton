@@ -1,4 +1,4 @@
-@extends('layouts.adminLayout',['headTitle'=>'Autenticação','pageActive'=>'auth'])
+@extends('admin.layouts.layout',['headTitle'=>'Autenticação','pageActive'=>'auth','classBody'=>'pace-done','mainClass'=>''])
 @section('content')
         <div class="section-authentication-cover">
             <div class="">

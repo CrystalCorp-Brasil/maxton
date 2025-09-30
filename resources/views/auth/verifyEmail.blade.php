@@ -1,4 +1,4 @@
-@extends('layouts.adminLayout',['headTitle'=>'Autenticação','pageActive'=>'auth'])
+@extends('admin.layouts.layout',['headTitle'=>'Autenticação','pageActive'=>'auth','classBody'=>'pace-done','mainClass'=>''])
 @section('content')
         <div class="mx-3 mx-lg-0" style="margin-top: 6%">
             <div class="card my-5 col-xl-9 col-xxl-8 mx-auto rounded-4 overflow-hidden p-4">
