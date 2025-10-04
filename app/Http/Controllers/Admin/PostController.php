@@ -1,9 +1,9 @@
 <?php
     namespace App\Http\Controllers\Admin;
 
-    use App\Models\{Category,Post,User};
     use App\Http\Controllers\Controller;
     use App\Http\Requests\{PostRequest,PostUploadRequest};
+    use App\Models\{Category,Post,User};
     use Illuminate\Http\{RedirectResponse,Request};
     use Illuminate\Support\Facades\{Auth,Redirect,Storage};
     use Illuminate\Support\Str;
@@ -12,14 +12,14 @@
     class PostController extends Controller {
         public function index() {
             $user = Auth::user();
-            $posts = Post::with('user')->where('user_id',$user->id)->orderBy('posts.updated_at', 'DESC')->get();
+            $posts = Post::userID($user->id)->with('user')->orderBy('posts.updated_at', 'DESC')->paginate(20);
             return \view ('admin/posts/index', compact('posts','user'));
         }
 
         public function create() {
             $user = Auth::user();
             $cats = Category::all();
-            $posts = Post::with('user')->where('user_id',$user->id)->orderBy('posts.created_at', 'DESC')->get();
+            $posts = Post::userID($user->id)->with('user')->orderBy('posts.created_at', 'DESC')->get();
             return \view ('admin/posts/create', compact('cats','posts','user'));
         }
 
@@ -31,9 +31,9 @@
             if($request->hasFile('image')) {
                 $file = $request->file('image');
                 $fileImg = $user->id.'-'.$slug.'-'.rand(1,99).'.'.$file->getClientOriginalExtension();
-                $request->user()->image = 'uploads/users/'.$user->id.'/'.$fileImg;
-                $file->move(public_path('uploads/users/'.$user->id), $fileImg);
-                $post->image = 'uploads/users/'.$user->id.'/'.$fileImg;
+                $request->user()->image = 'uploads/images/'.$user->id.'/'.$fileImg;
+                $file->move(public_path('uploads/images/'.$user->id), $fileImg);
+                $post->image = 'uploads/images/'.$user->id.'/'.$fileImg;
             }
             $post->title = $request->title;
             $post->slug = $slug;
@@ -60,9 +60,9 @@
                 }
                 $file = $request->file('image');
                 $fileImg = $post->user_id.'-'.$slug.'-'.rand(1,99).'.'.$file->getClientOriginalExtension();
-                $request->user()->image = 'uploads/users/'.$post->user_id.'/'.$fileImg;
-                $file->move(public_path('uploads/users/'.$post->user_id), $fileImg);
-                $post->image = 'uploads/users/'.$post->user_id.'/'.$fileImg;
+                $request->user()->image = 'uploads/images/'.$post->user_id.'/'.$fileImg;
+                $file->move(public_path('uploads/images/'.$post->user_id), $fileImg);
+                $post->image = 'uploads/images/'.$post->user_id.'/'.$fileImg;
             }
             $post->title = $request->title;
             $post->slug = $slug;

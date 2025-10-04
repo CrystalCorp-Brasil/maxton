@@ -16,7 +16,7 @@
                 $table->string('slug');
                 $table->longText('subject');
                 $table->string('category');
-                $table->text('image')->nullable();
+                $table->string('image');
                 $table->integer('visits')->default(0);
                 $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
                 $table->timestamps();

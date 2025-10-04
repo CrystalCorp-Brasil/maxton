@@ -2,23 +2,36 @@
     namespace App\Http\Controllers\Site;
 
     use App\Http\Controllers\Controller;
-    use App\Models\Post;
+    use App\Models\{Category,Post};
     use Illuminate\Support\Facades\{Auth,Cookie};
 
     class PostController extends Controller {
-        public function editorial(){
+        public function editorials(){
             $pageTitle = 'Editoriais';
-            $posts = Post::select('*')->where('category','Editorial')->with('user')->orderBy('created_at', 'DESC')->paginate(10);
-            return view('site/editorials/editorials', compact('posts','pageTitle'));
+            $cats = Category::all();
+            $posts = Post::catSlug('Editoriais')->with('user')->orderBy('created_at', 'DESC')->paginate(3);
+            $visits = Post::with('user')->orderBy('visits', 'DESC')->limit(6)->get();
+            return view('site/posts/posts', compact('cats','pageTitle','posts','visits'));
         }
 
-        public function editorialShow(Post $post){
+        public function projects(){
+            $pageTitle = 'Projetos';
+            $cats = Category::all();
+            $posts = Post::catSlug('Projetos')->with('user')->orderBy('created_at', 'DESC')->paginate(3);
+            $visits = Post::with('user')->orderBy('visits', 'DESC')->limit(6)->get();
+            return view('site/posts/posts', compact('cats','pageTitle','posts','visits'));
+        }
+
+        public function show(Post $post){
             $pageTitle = $post->title;
+            $cats = Category::all();
+            $posts = Post::catSlug($post->slug)->with('user')->orderBy('created_at', 'DESC')->get();
+            $visits = Post::with('user')->orderBy('visits', 'DESC')->limit(6)->get();
             if (!Cookie::has($post->id) && !Auth::check()) {
                 Cookie::queue($post->id, 'counter-views', 24 * 60);
                 $post->visits += 1;
                 $post->save();
             }
-            return view('site/editorials/editorial',compact('post','pageTitle'));
+            return view('site/posts/post',compact('cats','pageTitle','post','posts','visits'));
         }
     };

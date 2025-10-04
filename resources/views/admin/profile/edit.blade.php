@@ -8,7 +8,7 @@
                     <div class="card-body p-4">
                         <div class="position-relative mb-5">
                             <img src="assets/images/gallery/profile-cover.png" class="img-fluid rounded-4 shadow" alt="">
-                            <div class="profile-avatar position-absolute top-100 start-50 translate-middle"><img src="{{ asset($user->image) }}" class="img-fluid rounded-circle p-1 bg-grd-danger shadow" width="170" height="170" alt="{{ $user->username }}"></div>
+                            <div class="profile-avatar position-absolute top-100 start-50 translate-middle"><img src="@if($user->image == null){{ asset('images/admin/user.png') }}@else{{ asset($user->image) }}@endif" class="img-fluid rounded-circle p-1 bg-grd-danger shadow" width="170" height="170" alt="{{ $user->username }}"></div>
                         </div>
                         <div class="profile-info pt-5 d-flex align-items-center justify-content-between">
                             <div class="">
@@ -59,17 +59,17 @@
                                                 </div>
                                             </div>
                                             <div class="row my-5">
-                                                <label for="bio" class="form-label text-center">Preview</label>
+                                                <label for="preview" class="form-label text-center pb-3">Preview</label>
                                                 <div class="col-sm-6 offset-5"><img src="{{ asset('images/admin/user.png') }}" id="preview" alt="Image Preview" width="30%"/></div>
                                             </div>
                                             <div class="row mb-3">
-                                                <label for="bio" class="col-sm-3 col-form-label">Biografia</label>
-                                                <div class="col-sm-9">
-                                                    <div class="input-group"><textarea id="summernote" name="bio">{{ $user->bio }}</textarea></div>
+                                                <label for="bio" class="col-form-label text-center">Biografia</label>
+                                                <div class="col-9 offset-3">
+                                                    <textarea id="summernote" name="bio">{!! $user->bio !!}</textarea>
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
-                                                <div class="col-sm-6 offset-3">
+                                                <div class="col-sm-6 offset-6">
                                                     <div class="input-group"><button type="submit" class="btn btn-grd-deep-blue px-5">Salvar</button></div>
                                                 </div>
                                             </div>
@@ -87,7 +87,7 @@
             $(function() {
                 $('#summernote').summernote({
                     placeholder: 'Sua apresentação pessoal',
-                    tabsize: 2,
+                    tabsize: 4,
                     height: 250,
                 });
             });

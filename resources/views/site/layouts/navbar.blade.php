@@ -12,7 +12,11 @@
                 </div>
                 <div class="fancynavbar-addon fancynavbar-addon-height" data-zanim-lg='{"from":{"opacity":1,"x":45},"to":{"opacity":1,"x":0},"ease":"CubicBezier","duration":0.8,"delay":0.4}' data-zanim-trigger="scroll">
 @auth
+@if (Auth::user()->level =='user')
+                    <a class="fancynavbar-addon-item" href="{{ route('user.show',$user->id) }}"><span><i class="fad fa-desktop fa-2x px-3" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Painel de Usuário"></i></span></a><br/>
+@else
                     <a class="fancynavbar-addon-item" href="{{ route('dashboard') }}"><span><i class="fad fa-desktop fa-2x px-3" data-bs-toggle="tooltip" data-bs-placement="left" title="Painel de Usuário"></i></span></a><br/>
+@endif
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
 
@@ -30,12 +34,11 @@
                         <div class="fancy-dropdown-menu">
                             <div class="row pb-4 pt-3">
                                 <div class="col-sm-auto pe-4 ps-2">
-                                    <a class="fancy-dropdown-item" href="project"> Projetos</a>
-                                    <a class="fancy-dropdown-item" href="imgGallery') }}"> Galeria</a>
+                                    <a class="fancy-dropdown-item" href="{{ route('projects') }}"> Projetos</a>
+                                    <a class="fancy-dropdown-item" href="{{ route('imageGallery') }}"> Galeria</a>
                                 </div>
                                 <div class="col-sm-auto pe-4">
-                                    <a class="fancy-dropdown-item" href="{{ route('editorial') }}"> Editoriais</a>
-                                    <a class="fancy-dropdown-item" href="{{  route('about') }}"> Sobre Nós</a>
+                                    <a class="fancy-dropdown-item" href="{{ route('editorials') }}"> Editoriais</a>
                                 </div>
                             </div>
                         </div>
@@ -47,7 +50,7 @@
                                 <div class="col-sm-auto mb-3">
                                     <div class="row">
                                         <div class="col-sm-auto pe-4 ps-2">
-                                            <a class="fancy-dropdown-item" href=""> Tutoriais</a>
+                                            <a class="fancy-dropdown-item" href="{{ route('walkthrough') }}"> Guia & Walkthrough</a>
                                         </div>
                                         <div class="col-sm-auto pe-4">
                                             <a class="fancy-dropdown-item" href=""> Episódios</a>
@@ -67,10 +70,12 @@
                             </div>
                         </div>
                     </li>
-                    <li class="fancynav-item"><a class="fancynav-link" href=""><span class="fancynav-link-content">contato</span></a></li>
-                    <li class="fancynav-item"><a class="fancynav-link" href=""><span class="fancynav-link-content">faqs</span></a></li>
+                    <li class="fancynav-item"><a class="fancynav-link" href="{{ route('faqs') }}"><span class="fancynav-link-content">faqs</span></a></li>
                     <li class="fancynav-item"><a class="fancynav-link" href="{{  route('termsOfUse') }}"><span class="fancynav-link-content">termos de uso</span></a></li>
                     <li class="fancynav-item"><a class="fancynav-link" href="{{  route('privacyPolicy') }}"><span class="fancynav-link-content">política de privacidade</span></a></li>
+                    <li class="fancynav-item"><a class="fancynav-link" href="{{ route('contact') }}"><span class="fancynav-link-content">contato</span></a></li>
+                    <li class="fancynav-item"><a class="fancynav-link" href="{{  route('about') }}"><span class="fancynav-link-content">sobre nós</span></a></li>
+
                 </ul>
             </div>
         </nav>

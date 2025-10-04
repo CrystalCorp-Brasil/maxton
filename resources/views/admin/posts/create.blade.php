@@ -17,7 +17,7 @@
 
                                                 @method('PATCH')
 
-                                                <div class="row bg-grd-deep-blue p-2 rounded mb-4">
+                                                <div class="row my-4 rounded mb-4">
                                                     <div class="mb-3">
                                                         <label for="title" class="form-label">Título</label>
                                                         <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}" placeholder="Título da Publicação">
@@ -32,11 +32,11 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="row bg-grd-deep-blue p-2 rounded mb-4">
+                                                <div class="row my-4 rounded mb-4">
                                                     <label for="bio" class="form-label">Matéria</label>
                                                     <textarea id="summernote" name="subject"></textarea>
                                                 </div>
-                                                <div class="row bg-grd-deep-blue p-2 rounded mb-4">
+                                                <div class="row my-4 rounded mb-4">
                                                     <div class="mb-3">
                                                         <label for="image" class="form-label">Capa da Publicação</label>
                                                         <input type="file" class="form-control" id="image" name="image" accept="image/*" onchange="document.getElementById('preview').src = window.URL.createObjectURL(this.files[0]);document.getElementById('preview').style.display = 'block';">
@@ -46,7 +46,7 @@
                                                         <div class="text-center"><img src="{{ asset('images/corp/preview.png') }}" id="preview" alt="Image Preview" width="70%"/></div>
                                                     </div>
                                                 </div>
-                                                <div class="row bg-grd-deep-blue p-2 rounded mb-4">
+                                                <div class="row my-4 rounded mb-4">
                                                     <button type="submit" class="btn btn-grd-success text-dark">Publicar</button>
                                                 </div>
                                             </form>

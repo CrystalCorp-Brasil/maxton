@@ -68,7 +68,7 @@
         });
     </script>
 @enderror
-@error('cover')
+@error('image')
     <script>
         Swal.fire({
             icon: 'error',
@@ -88,6 +88,57 @@
         });
     </script>
 @enderror
+@error('resume')
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Atenção!',
+            text: '{{ $message }}',
+            showConfirmButton: true,
+        });
+    </script>
+@enderror
+@error('tag')
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Atenção!',
+            text: '{{ $message }}',
+            showConfirmButton: true,
+        });
+    </script>
+@enderror
+@error('link')
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Atenção!',
+            text: '{{ $message }}',
+            showConfirmButton: true,
+        });
+    </script>
+@enderror
+@error('message')
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Atenção!',
+            text: '{{ $message }}',
+            showConfirmButton: true,
+        });
+    </script>
+@enderror
+@if (session('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Atenção!',
+                text: '{{ session('error') }}',
+                showConfirmButton: false,
+                timer: 3000
+            });
+        </script>
+@endif
 @if (session('success'))
         <script>
             Swal.fire({

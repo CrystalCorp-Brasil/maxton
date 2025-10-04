@@ -14,6 +14,10 @@
             return view('admin/profile/edit', compact('user'));
         }
 
+        public function show(Request $request): View {
+            $user = $request->user();
+            return view('admin/users/show', compact('user'));
+        }
         public function update(ProfileUpdateRequest $request, $id): RedirectResponse {
             $request->user()->fill($request->validated());
             $fileImg = User::find($id);

@@ -8,12 +8,23 @@
                 <ul class="metismenu" id="sidenav">
                     <li>
                         <a href="{{ route('dashboard') }}">
-                            <div class="parent-icon"><i class="material-icons-outlined">home</i></div>
+                            <div class="parent-icon"><i class="bx-sm material-icons-outlined">home</i></div>
                             <div class="menu-title">Dashboard</div>
                         </a>
                     </li>
                     <li>
-                        <a class="has-arrow" href="javascript:;">
+                        <a href="javascript:void(0)" class="has-arrow">
+                            <div class="parent-icon"><i class="bx bx-sm bx-images"></i></div>
+                            <div class="menu-title">Galeria</div>
+                        </a>
+                        <ul>
+                            <li><a href="{{ route('gallery.index') }}"><i class="material-icons-outlined">arrow_right</i>Galeria</a></li>
+                            <li><a href="{{ route('gallery.upload') }}"><i class="material-icons-outlined">arrow_right</i>Upload</a></li>
+                        </ul>
+                    </li>
+@if (Auth::user()->level != 'user')
+                    <li>
+                        <a class="has-arrow" href="javascript:void(0)">
                             <div class="parent-icon"><i class="material-icons-outlined">apps</i></div>
                             <div class="menu-title">Publicações</div>
                         </a>
@@ -24,25 +35,32 @@
                             <li><a href="javascript:void(0)"><i class="material-icons-outlined">arrow_right</i>Listar Comentários</a></li>
                         </ul>
                     </li>
+                    <li class="menu-label">Ferramentas</li>
                     <li>
-                        <a href="javascript:;" class="has-arrow">
-                            <div class="parent-icon"><i class="material-icons-outlined">widgets</i></div>
-                            <div class="menu-title">Widgets</div>
+                        <a class="has-arrow" href="javascript:void(0)">
+                            <div class="parent-icon"><i class="material-icons-outlined">view_agenda</i></div>
+                            <div class="menu-title">Ícones</div>
                         </a>
                         <ul>
-                            <li><a href="widgets-data.html"><i class="material-icons-outlined">arrow_right</i>Data</a></li>
-                            <li><a href="widgets-static.html"><i class="material-icons-outlined">arrow_right</i>Static</a></li>
+                            <li><a href="{{ route('icons.boxicons') }}"><i class="material-icons-outlined">arrow_right</i>Boxicons</a></li>
+                            <li><a href="{{ route('icons.fontawesome') }}"><i class="material-icons-outlined">arrow_right</i>Font Awesome</a></li>
+                            <li><a href="{{ route('icons.iconsmind') }}"><i class="material-icons-outlined">arrow_right</i>IconsMind</a></li>
+                            <li><a href="icons-line-icons.html"><i class="material-icons-outlined">arrow_right</i>Line Icons</a></li>
+                            <li><a href="icons-feather-icons.html"><i class="material-icons-outlined">arrow_right</i>Feather Icons</a></li>
                         </ul>
                     </li>
-                    <li class="menu-label">UI Elements</li>
                     <li>
-                        <a href="cards.html">
-                            <div class="parent-icon"><i class="material-icons-outlined">inventory_2</i></div>
-                            <div class="menu-title">Cards</div>
+                        <a class="has-arrow" href="javascript:void(0)">
+                            <div class="parent-icon"><i class="fa-2x i-Youtube"></i></div>
+                            <div class="menu-title">Links do YouTube</div>
                         </a>
+                        <ul>
+                            <li><a href="{{ route('linkYT.index') }}"><i class="material-icons-outlined">arrow_right</i>Links Cadastrados</a></li>
+                            <li><a href="{{ route('linkYT.upload') }}"><i class="material-icons-outlined">arrow_right</i>Cadastrar Link</a></li>
+                        </ul>
                     </li>
                     <li>
-                        <a href="javascript:;" class="has-arrow">
+                        <a href="javascript:void(0)" class="has-arrow">
                             <div class="parent-icon"><i class="material-icons-outlined">shopping_bag</i></div>
                             <div class="menu-title">eCommerce</div>
                         </a>
@@ -56,7 +74,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="has-arrow" href="javascript:;">
+                        <a class="has-arrow" href="javascript:void(0)">
                             <div class="parent-icon"><i class="material-icons-outlined">card_giftcard</i></div>
                             <div class="menu-title">Components</div>
                         </a>
@@ -80,20 +98,9 @@
                             <li><a href="component-text-utilities.html"><i class="material-icons-outlined">arrow_right</i>Utilities</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a class="has-arrow" href="javascript:;">
-                            <div class="parent-icon"><i class="material-icons-outlined">view_agenda</i></div>
-                            <div class="menu-title">Icons</div>
-                        </a>
-                        <ul>
-                            <li><a href="icons-line-icons.html"><i class="material-icons-outlined">arrow_right</i>Line Icons</a></li>
-                            <li><a href="icons-boxicons.html"><i class="material-icons-outlined">arrow_right</i>Boxicons</a></li>
-                            <li><a href="icons-feather-icons.html"><i class="material-icons-outlined">arrow_right</i>Feather Icons</a></li>
-                        </ul>
-                    </li>
                     <li class="menu-label">Forms & Tables</li>
                     <li>
-                        <a class="has-arrow" href="javascript:;">
+                        <a class="has-arrow" href="javascript:void(0)">
                             <div class="parent-icon"><i class="material-icons-outlined">toc</i></div>
                             <div class="menu-title">Forms</div>
                         </a>
@@ -111,7 +118,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="has-arrow" href="javascript:;">
+                        <a class="has-arrow" href="javascript:void(0)">
                             <div class="parent-icon"><i class="material-icons-outlined">api</i></div>
                             <div class="menu-title">Tables</div>
                         </a>
@@ -122,13 +129,13 @@
                     </li>
                     <li class="menu-label">Pages</li>
                     <li>
-                        <a class="has-arrow" href="javascript:;">
+                        <a class="has-arrow" href="javascript:void(0)">
                             <div class="parent-icon"><i class="material-icons-outlined">lock</i></div>
                             <div class="menu-title">Authentication</div>
                         </a>
                         <ul>
                             <li>
-                                <a class="has-arrow" href="javascript:;"><i class="material-icons-outlined">arrow_right</i>Basic</a>
+                                <a class="has-arrow" href="javascript:void(0)"><i class="material-icons-outlined">arrow_right</i>Basic</a>
                                 <ul>
                                     <li><a href="auth-basic-login.html" target="_blank"><i class="material-icons-outlined">arrow_right</i>Login</a></li>
                                     <li><a href="auth-basic-register.html" target="_blank"><i class="material-icons-outlined">arrow_right</i>Register</a></li>
@@ -137,7 +144,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a class="has-arrow" href="javascript:;"><i class="material-icons-outlined">arrow_right</i>Cover</a>
+                                <a class="has-arrow" href="javascript:void(0)"><i class="material-icons-outlined">arrow_right</i>Cover</a>
                                 <ul>
                                     <li><a href="auth-cover-login.html" target="_blank"><i class="material-icons-outlined">arrow_right</i>Login</a></li>
                                     <li><a href="auth-cover-register.html" target="_blank"><i class="material-icons-outlined">arrow_right</i>Register</a></li>
@@ -146,7 +153,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a class="has-arrow" href="javascript:;"><i class="material-icons-outlined">arrow_right</i>Boxed</a>
+                                <a class="has-arrow" href="javascript:void(0)"><i class="material-icons-outlined">arrow_right</i>Boxed</a>
                                 <ul>
                                     <li><a href="auth-boxed-login.html" target="_blank"><i class="material-icons-outlined">arrow_right</i>Login</a></li>
                                     <li><a href="auth-boxed-register.html" target="_blank"><i class="material-icons-outlined">arrow_right</i>Register</a></li>
@@ -169,7 +176,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="has-arrow" href="javascript:;">
+                        <a class="has-arrow" href="javascript:void(0)">
                             <div class="parent-icon"><i class="material-icons-outlined">report_problem</i></div>
                             <div class="menu-title">Pages</div>
                         </a>
@@ -194,7 +201,7 @@
                     </li>
                     <li class="menu-label">Charts & Maps</li>
                     <li>
-                        <a class="has-arrow" href="javascript:;">
+                        <a class="has-arrow" href="javascript:void(0)">
                             <div class="parent-icon"><i class="material-icons-outlined">fitbit</i></div>
                             <div class="menu-title">Charts</div>
                         </a>
@@ -204,7 +211,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="has-arrow" href="javascript:;">
+                        <a class="has-arrow" href="javascript:void(0)">
                             <div class="parent-icon"><i class="material-icons-outlined">sports_football</i></div>
                             <div class="menu-title">Maps</div>
                         </a>
@@ -215,18 +222,18 @@
                     </li>
                     <li class="menu-label">Others</li>
                     <li>
-                        <a class="has-arrow" href="javascript:;">
+                        <a class="has-arrow" href="javascript:void(0)">
                             <div class="parent-icon"><i class="material-icons-outlined">face_5</i></div>
                             <div class="menu-title">Menu Levels</div>
                         </a>
                         <ul>
                             <li>
-                                <a class="has-arrow" href="javascript:;"><i class="material-icons-outlined">arrow_right</i>Level One</a>
+                                <a class="has-arrow" href="javascript:void(0)"><i class="material-icons-outlined">arrow_right</i>Level One</a>
                                 <ul>
                                     <li>
-                                        <a class="has-arrow" href="javascript:;"><i class="material-icons-outlined">arrow_right</i>Level Two</a>
+                                        <a class="has-arrow" href="javascript:void(0)"><i class="material-icons-outlined">arrow_right</i>Level Two</a>
                                         <ul>
-                                            <li><a href="javascript:;"><i class="material-icons-outlined">arrow_right</i>Level Three</a></li>
+                                            <li><a href="javascript:void(0)"><i class="material-icons-outlined">arrow_right</i>Level Three</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -234,17 +241,18 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="javascrpt:;">
+                        <a href="javascrpt:void(0)">
                             <div class="parent-icon"><i class="material-icons-outlined">description</i></div>
                             <div class="menu-title">Documentation</div>
                         </a>
                     </li>
                     <li>
-                        <a href="javascrpt:;">
+                        <a href="javascrpt:void(0)">
                             <div class="parent-icon"><i class="material-icons-outlined">support</i></div>
                             <div class="menu-title">Support</div>
                         </a>
                     </li>
+@endif
                 </ul>
             </div>
         </aside>

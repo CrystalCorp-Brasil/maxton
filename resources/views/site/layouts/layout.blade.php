@@ -8,7 +8,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="msapplication-TileImage" content="{{ asset('favicon.png') }}">
         <meta name="theme-color" content="#031141">
-        <title>{{ config('app.name', 'CrystalCorp') }} | @yield('headTitle')</title>
+        <title>{{ config('app.name', 'CrystalCorp') }} | {{ $pageTitle }}</title>
         <link href="{{ asset('favicon.png') }}" rel="apple-touch-icon" sizes="180x180">
         <link href="{{ asset('favicon.png') }}" rel="icon" type="image/png" sizes="32x32">
         <link href="{{ asset('favicon.ico') }}" rel="shortcut icon" type="image/x-icon">

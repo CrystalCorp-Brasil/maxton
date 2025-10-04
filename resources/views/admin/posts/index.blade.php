@@ -54,6 +54,8 @@
                                     </tbody>
                                 </table>
                             </div>
+                            <hr>
+                            {{ $posts->appends(request()->query())->links() }}
                         </div>
                     </div>
                 </div>

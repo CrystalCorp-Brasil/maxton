@@ -33,4 +33,9 @@
             $user = User::find($id);
             return view('admin/users/show', \compact('user'));
         }
+
+        public function userPanel(Request $request): View {
+            $user = $request->user();
+            return view('admin/users/show', compact('user'));
+        }
     }
