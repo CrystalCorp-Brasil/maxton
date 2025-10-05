@@ -3,22 +3,24 @@
 
     use App\Http\Controllers\Controller;
     use App\Http\Requests\{PostRequest,PostUploadRequest};
-    use App\Models\{Category,Post,User};
+    use App\Http\Traits\GlobalTrait;
+    use App\Models\{Post,PostCategory,User};
     use Illuminate\Http\{RedirectResponse,Request};
     use Illuminate\Support\Facades\{Auth,Redirect,Storage};
     use Illuminate\Support\Str;
     use Illuminate\View\View;
 
     class PostController extends Controller {
+        Use GlobalTrait;
         public function index() {
-            $user = Auth::user();
+            $user = $this->getCurrentUser();
             $posts = Post::userID($user->id)->with('user')->orderBy('posts.updated_at', 'DESC')->paginate(20);
             return \view ('admin/posts/index', compact('posts','user'));
         }
 
         public function create() {
-            $user = Auth::user();
-            $cats = Category::all();
+            $user = $this->getCurrentUser();
+            $cats = PostCategory::all();
             $posts = Post::userID($user->id)->with('user')->orderBy('posts.created_at', 'DESC')->get();
             return \view ('admin/posts/create', compact('cats','posts','user'));
         }
@@ -45,8 +47,8 @@
         }
 
         public function edit(Post $post): View {
-            $user = Auth::user();
-            $cats = Category::all();
+            $user = $this->getCurrentUser();
+            $cats = PostCategory::all();
             return view('admin/posts/edit', compact('cats','post','user'));
         }
 
@@ -71,10 +73,14 @@
             $post->save();
             return Redirect::route('post.index')->with('success','Edição gravada com sucesso!');
         }
+
         public function destroy(Request $request): RedirectResponse {
             $request->validateWithBag('postDeletion', ['password' => ['required', 'current_password'],]);
-            $post = Post::find($request->id);
-            if($post->image) {Storage::disk('public')->delete($post->image);}
+            $post = Post::findOrFail($request->id);
+            $imagePath = public_path($post->image);
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
             $post->delete();
             return Redirect::to(route('post.index'))->with('success','Exclusão feita com sucesso!');
         }

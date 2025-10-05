@@ -2,7 +2,7 @@
 @section('headTitle')Galeria de Imagens @endsection
 @section('content')
             @include('site.layouts.header')
-            <section class="mt-5 mt-lg-0 py-lg-7 px-5" id="Gallery">
+            <section class="mt-5 mt-lg-0 py-lg-7 px-5 card" id="Gallery">
                 <div class="container-fluid">
                     <div class="row mb-5 mb-lg-7">
                         <div class="col-lg-6">
@@ -10,10 +10,10 @@
                         </div>
                     </div>
                     <ul class="nav font-secondary mb-3" data-filter-nav="data-filter-nav">
-                        <li class="nav-item"><a class="nav-link isotope-nav active px-4 py-2" href="#!" data-filter="*">todos</a></li>
-                        <li class="nav-item"><a class="nav-link isotope-nav px-4 py-2" href="#!" data-filter=".admin">administrador</a></li>
-                        <li class="nav-item"><a class="nav-link isotope-nav px-4 py-2" href="#!" data-filter=".editor">editores</a></li>
-                        <li class="nav-item"><a class="nav-link isotope-nav px-4 py-2" href="#!" data-filter=".user">usuários</a></li>
+                        <li class="nav-item me-1"><a class="nav-link isotope-nav active px-4 py-2" href="#!" data-filter="*">todos</a></li>
+                        <li class="nav-item mx-1"><a class="nav-link isotope-nav px-4 py-2" href="#!" data-filter=".admin">administrador</a></li>
+                        <li class="nav-item mx-1"><a class="nav-link isotope-nav px-4 py-2" href="#!" data-filter=".editor">editores</a></li>
+                        <li class="nav-item ms-1"><a class="nav-link isotope-nav px-4 py-2" href="#!" data-filter=".user">usuários</a></li>
                     </ul>
                     <div class="row g-3 mt-2" id="portfolio-gallery" data-zanim-timeline="{}" data-zanim-trigger="scroll" data-isotope='{"layoutMode":"packery"}'>
 @forelse ($images as $image)

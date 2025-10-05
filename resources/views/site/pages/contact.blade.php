@@ -7,9 +7,9 @@
             <section class="py-0" id="page-contact">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-6 bg-body pt-8 pb-4">
+                        <div class="col-lg-6 bg-body pt-5 pb-4 card">
                             <div class="row h-100 flex-center">
-                                <div class="col-lg-8" data-zanim-lg='{"animation":"slide-left","delay":0.6}' data-zanim-trigger="scroll">
+                                <div class="col-lg-8 rounded-3" data-zanim-lg='{"animation":"slide-left","delay":0.6}' data-zanim-trigger="scroll">
                                     <h1 class="text-decoration-underline d-inline-block mb-4 mb-lg-6">contato</h1>
                                     <p class="fw-bold mb-4">E-mail:<span class="ms-2 fw-normal fst-italic"><a class="text-body" href="mailto:admin@crystalcorp.com.br">admin@crystalcorp.com.br</a></span></p>
                                     <h3 class="mt-7">Envie-nos uma mensagem</h3>
@@ -18,19 +18,19 @@
 
                                         <div class="col-12 mt-3">
                                             <div class="input-group">
-                                                <span class="input-group-text px-3" id="basic-addon3"><i class="fal fa-user"></i></span>
+                                                <span class="input-group-text px-3" id="basic-addon3"><i class="fal fa-user text-orange"></i></span>
                                                 <input class="form-control" type="text" id="name" name="name"  placeholder="Nome" value="{{ old('name') }}" autocomplete="name" autofocus>
                                             </div>
                                         </div>
                                         <div class="col-12 mt-3">
                                             <div class="input-group">
-                                                <span class="input-group-text px-3" id="basic-addon3"><i class="fal fa-envelope"></i></span>
+                                                <span class="input-group-text px-3" id="basic-addon3"><i class="fal fa-envelope text-orange"></i></span>
                                                 <input class="form-control" type="email" id="email" name="email"  placeholder="Email" value="{{ old('email') }}" autocomplete="email" autofocus>
                                             </div>
                                         </div>
                                         <div class="col-12 my-3">
                                             <div class="input-group">
-                                                <span class="input-group-text px-3" id="basic-addon3"><i class="i-File-Horizontal-Text"></i></span>
+                                                <span class="input-group-text px-3" id="basic-addon3"><i class="i-File-Horizontal-Text text-orange"></i></span>
                                                 <input class="form-control" type="text" id="subject" name="subject"  placeholder="Assunto" value="{{ old('subject') }}" autocomplete="subject" autofocus>
                                             </div>
                                         </div>

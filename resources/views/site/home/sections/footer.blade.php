@@ -1,5 +1,5 @@
             <section class="p-5" id="footer">
-                <div class="bg-holder overlay overlay-0" style="background-image:url({{ asset('images/web/dcuo/site-005.jpg') }});"></div>
+                <div class="bg-holder overlay overlay-0" style="background-image:url({{ asset('images/dev/body-background-3.jpg') }});"></div>
                 <div class="container-fluid">
                     <div class="row flex-center">
                         <div class="col-lg-6 offset-1"><h1 class="fw-black mb-0 text-orange">DC Universe<span class="fw-light"> Online</span></h1></div>

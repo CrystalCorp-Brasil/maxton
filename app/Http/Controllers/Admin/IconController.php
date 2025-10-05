@@ -45,4 +45,14 @@
             })->paginate(48);
             return view('admin/icons/index',compact('family','user','search','icons'));
         }
+
+        public function lineIcon(Request $request){
+            $user = Auth::user();
+            $family = Icon::select('*')->where('slug','LineIcons')->paginate(48);
+            $search = $request->input('search');
+            $icons = Icon::when($search, function($query, $search) {
+                return $query->where('title', 'like', '%'.$search.'%');
+            })->paginate(48);
+            return view('admin/icons/index',compact('family','user','search','icons'));
+        }
     }

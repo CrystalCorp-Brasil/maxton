@@ -4,7 +4,7 @@
     <link href="{{ asset('plugins/summernote/summernote-bs5.css') }}" rel="stylesheet" type="text/css"/>
 @endsection
 @section('content')
-                <div class="card mt-4">
+                <div class="card w-100 rounded-1 rounded-4 border-top border-4 border-info border-gradient1 mt-4">
                     <div class="card-body">
                         <div class="product-table">
                             <div class="block block-rounded">
@@ -12,7 +12,7 @@
                                     <div class="row justify-content-center">
                                         <div class="col-12">
                                             <form action="{{ route('post.store') }}" method="POST" class="row g-3" enctype="multipart/form-data">
-                                                <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}">
+                                                <input type="hidden" id="user_id" name="user_id" value="{{ $user->id }}">
                                                 @csrf
 
                                                 @method('PATCH')

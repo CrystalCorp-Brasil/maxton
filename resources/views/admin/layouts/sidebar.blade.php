@@ -13,7 +13,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)" class="has-arrow">
+                        <a class="has-arrow" href="javascript:void(0)">
                             <div class="parent-icon"><i class="bx bx-sm bx-images"></i></div>
                             <div class="menu-title">Galeria</div>
                         </a>
@@ -22,7 +22,7 @@
                             <li><a href="{{ route('gallery.upload') }}"><i class="material-icons-outlined">arrow_right</i>Upload</a></li>
                         </ul>
                     </li>
-@if (Auth::user()->level != 'user')
+@if ($user->level != 'user')
                     <li>
                         <a class="has-arrow" href="javascript:void(0)">
                             <div class="parent-icon"><i class="material-icons-outlined">apps</i></div>
@@ -45,7 +45,7 @@
                             <li><a href="{{ route('icons.boxicons') }}"><i class="material-icons-outlined">arrow_right</i>Boxicons</a></li>
                             <li><a href="{{ route('icons.fontawesome') }}"><i class="material-icons-outlined">arrow_right</i>Font Awesome</a></li>
                             <li><a href="{{ route('icons.iconsmind') }}"><i class="material-icons-outlined">arrow_right</i>IconsMind</a></li>
-                            <li><a href="icons-line-icons.html"><i class="material-icons-outlined">arrow_right</i>Line Icons</a></li>
+                            <li><a href="{{ route('icons.lineicon') }}"><i class="material-icons-outlined">arrow_right</i>Line Icons</a></li>
                             <li><a href="icons-feather-icons.html"><i class="material-icons-outlined">arrow_right</i>Feather Icons</a></li>
                         </ul>
                     </li>
@@ -55,22 +55,22 @@
                             <div class="menu-title">Links do YouTube</div>
                         </a>
                         <ul>
-                            <li><a href="{{ route('linkYT.index') }}"><i class="material-icons-outlined">arrow_right</i>Links Cadastrados</a></li>
-                            <li><a href="{{ route('linkYT.upload') }}"><i class="material-icons-outlined">arrow_right</i>Cadastrar Link</a></li>
+                            <li><a href="{{ route('video.index') }}"><i class="material-icons-outlined">arrow_right</i>Links Cadastrados</a></li>
+                            <li><a href="{{ route('video.upload') }}"><i class="material-icons-outlined">arrow_right</i>Cadastrar Link</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:void(0)" class="has-arrow">
-                            <div class="parent-icon"><i class="material-icons-outlined">shopping_bag</i></div>
-                            <div class="menu-title">eCommerce</div>
+                        <a class="has-arrow" href="javascript:void(0)">
+                            <div class="parent-icon"><i class="lni lni-apartment"></i></div>
+                            <div class="menu-title">CrystalCorp</div>
                         </a>
                         <ul>
-                            <li><a href="ecommerce-add-product.html"><i class="material-icons-outlined">arrow_right</i>Add Product</a></li>
-                            <li><a href="ecommerce-products.html"><i class="material-icons-outlined">arrow_right</i>Products</a></li>
-                            <li><a href="ecommerce-customers.html"><i class="material-icons-outlined">arrow_right</i>Customers</a></li>
-                            <li><a href="ecommerce-customer-details.html"><i class="material-icons-outlined">arrow_right</i>Customer Details</a></li>
-                            <li><a href="ecommerce-orders.html"><i class="material-icons-outlined">arrow_right</i>Orders</a></li>
-                            <li><a href="ecommerce-order-details.html"><i class="material-icons-outlined">arrow_right</i>Order Details</a></li>
+                            <li><a href="{{ route('chars.index') }}"><i class="material-icons-outlined">arrow_right</i>Personagens</a></li>
+                            <li><a href="{{ route('char.create') }}"><i class="material-icons-outlined">arrow_right</i>Novo Personagem</a></li>
+                            <li><a href="javascript:void(0)"><i class="material-icons-outlined">arrow_right</i>Customers</a></li>
+                            <li><a href="javascript:void(0)"><i class="material-icons-outlined">arrow_right</i>Customer Details</a></li>
+                            <li><a href="javascript:void(0)"><i class="material-icons-outlined">arrow_right</i>Orders</a></li>
+                            <li><a href="javascript:void(0)"><i class="material-icons-outlined">arrow_right</i>Order Details</a></li>
                         </ul>
                     </li>
                     <li>

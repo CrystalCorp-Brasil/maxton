@@ -1,5 +1,5 @@
                     <div class="col-xxl-8 d-flex align-items-stretch">
-                        <div class="card w-100 overflow-hidden rounded-4">
+                        <div class="card w-100 overflow-hidden rounded-1 rounded-4 border-top border-4 border-info border-gradient1">
                             <div class="card-body position-relative p-4">
                                 <div class="row">
                                     <div class="col-12 col-sm-7">

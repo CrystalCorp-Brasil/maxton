@@ -4,7 +4,7 @@
                 <div class="row row-cols-1 row-cols-lg-4">
 @forelse ($links as $link)
                     <div class="col">
-                        <div class="card rounded-4">
+                        <div class="card w-100 rounded-1 rounded-4 border-top border-4 border-info border-gradient1 mt-4">
                             <div class="card-body">
                                 <img src="{{ asset($link->image) }}" class="img-fluid rounded-4" alt="{{ $link->slug }}">
                                 <div class="mt-3">

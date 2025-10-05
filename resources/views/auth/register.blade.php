@@ -28,7 +28,7 @@
                                     <div class="line"></div>
                                 </div>
                                 <div class="form-body mt-4">
-                                    <form class="row g-3" method="POST" action="{{ route('register') }}">
+                                    <form method="POST" action="{{ route('register') }}" class="row g-3">
                                         @csrf
 
                                         <div class="col-12">

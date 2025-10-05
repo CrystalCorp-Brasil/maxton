@@ -5,9 +5,9 @@
     use Illuminate\Database\Seeder;
     use Illuminate\Support\Facades\DB as FacadesDB;
 
-    class TagsYT extends Seeder {
+    class VideoTagSeeder extends Seeder {
         public function run(): void {
-            FacadesDB::table('tags_videos')->insert([
+            FacadesDB::table('videos_tags')->insert([
                 ['tag'=>'Cinematic',],
                 ['tag'=>'Gameplay',],
                 ['tag'=>'Walkthrough',],

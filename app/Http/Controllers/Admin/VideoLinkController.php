@@ -2,28 +2,31 @@
     namespace App\Http\Controllers\Admin;
 
     use App\Http\Controllers\Controller;
-    use App\Models\{LinkYT,TagsVideo,User};
-    use App\Http\Requests\LinkYTRequest;
+    use App\Http\Traits\GlobalTrait;
+    use App\Models\{VideoLink,VideoTag,User};
+    use App\Http\Requests\VideoLinkRequest;
     use Illuminate\Support\Facades\{Auth,Redirect};
     use Illuminate\Support\Str;
 
-    class LinksYTController extends Controller {
+    class VideoLinkController extends Controller {
+        Use GlobalTrait;
         public function index(){
-            $user = Auth::user();
-            $links = LinkYT::userID($user->id)->with('user')->orderBy('links_yt.created_at', 'DESC')->paginate(16);
-            return view('admin/ytLinks/index', compact('links','user'));
+            $user = $this->getCurrentUser();
+            $links = VideoLink::userID($user->id)->with('user')->orderBy('videos_links.created_at', 'DESC')->paginate(16);
+            return view('admin/videos/index', compact('links','user'));
         }
 
         public function upload(){
-            $links = TagsVideo::all();
-            return view('admin/ytLinks/upload',compact('links'));
+            $user = $this->getCurrentUser();
+            $tags = VideoTag::all();
+            return view('admin/videos/upload',compact('tags','user'));
         }
 
-        public function store(LinkYTRequest $request){
+        public function store(VideoLinkRequest $request){
             $request->validated();
             $user = User::find($request->user_id);
             $slug = Str::slug($request->title);
-            $videos = new LinkYT();
+            $videos = new VideoLink();
             if($request->hasFile('image')) {
                 $file = $request->file('image');
                 $fileImg = $user->id.'-'.$slug.'-'.rand(1,99).'.'.$file->getClientOriginalExtension();
@@ -38,6 +41,6 @@
             $videos->user_id = $request->user_id;
             $videos->resume = $request->resume;
             $videos->save();
-            return Redirect::route('linkYT.index')->with('success','Upload efetuado com sucesso!');
+            return Redirect::route('video.index')->with('success','Upload efetuado com sucesso!');
         }
     }

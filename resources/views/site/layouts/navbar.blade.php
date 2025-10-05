@@ -12,8 +12,8 @@
                 </div>
                 <div class="fancynavbar-addon fancynavbar-addon-height" data-zanim-lg='{"from":{"opacity":1,"x":45},"to":{"opacity":1,"x":0},"ease":"CubicBezier","duration":0.8,"delay":0.4}' data-zanim-trigger="scroll">
 @auth
-@if (Auth::user()->level =='user')
-                    <a class="fancynavbar-addon-item" href="{{ route('user.show',$user->id) }}"><span><i class="fad fa-desktop fa-2x px-3" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Painel de Usuário"></i></span></a><br/>
+@if ($user->level =='user')
+                    <a class="fancynavbar-addon-item" href="{{ route('user.show',$user) }}"><span><i class="fad fa-desktop fa-2x px-3" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Painel de Usuário"></i></span></a><br/>
 @else
                     <a class="fancynavbar-addon-item" href="{{ route('dashboard') }}"><span><i class="fad fa-desktop fa-2x px-3" data-bs-toggle="tooltip" data-bs-placement="left" title="Painel de Usuário"></i></span></a><br/>
 @endif
@@ -65,7 +65,7 @@
                         <div class="fancy-dropdown-menu">
                             <div class="row pb-4 pt-3">
                                 <div class="col-auto ps-2">
-                                    <a class="fancy-dropdown-item" href=""> Personagens</a>
+                                    <a class="fancy-dropdown-item" href="{{ route('chars') }}"> Personagens</a>
                                 </div>
                             </div>
                         </div>

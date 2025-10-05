@@ -1,4 +1,4 @@
-            <section class="text-center bg-black-russian p-5 overflow-hidden" id="leagueHall">
+            <section class="text-center p-5 overflow-hidden" id="leagueHall" style="background-image:url({{ asset('images/dev/body-background-4.jpg') }});">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col px-4">

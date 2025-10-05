@@ -1,15 +1,15 @@
 @extends('admin.layouts.layout',['pageActive'=>'dashboard','pageTitle'=>'Cadastro de Link YT','classBody'=>'pace-done','mainClass'=>'main-wrapper'])
 @section('headTitle')Cadastro de Link YT @endsection
 @section('content')
-                <div class="card mt-4">
+                <div class="card w-100 rounded-1 rounded-4 border-top border-4 border-info border-gradient1 mt-4">
                     <div class="card-body">
                         <div class="product-table">
                             <div class="block block-rounded">
                                 <div class="block-content">
                                     <div class="row justify-content-center">
                                         <div class="col-12">
-                                            <form action="{{ route('linkYT.store') }}" method="POST" class="row g-3" enctype="multipart/form-data">
-                                                <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}">
+                                            <form action="{{ route('video.store') }}" method="POST" class="row g-3" enctype="multipart/form-data">
+                                                <input type="hidden" id="user_id" name="user_id" value="{{ $user->id }}">
                                                 @csrf
 
                                                 @method('PATCH')
@@ -33,8 +33,8 @@
                                                         <label for="tag" class="form-label">Etiqueta</label>
                                                         <select class="form-select" id="tag" name="tag" style="width: 100%;">
                                                             <option>Selecione a Etiqueta</option>
-@foreach ($links as $link)
-                                                            <option value="{{ $link->tag }}">{{ $link->tag }}</option>
+@foreach ($tags as $tag)
+                                                            <option value="{{ $tag->tag }}">{{ $tag->tag }}</option>
 @endforeach
                                                         </select>
                                                     </div>

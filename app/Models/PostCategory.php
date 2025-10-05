@@ -5,8 +5,8 @@
     use Illuminate\Database\Eloquent\Model;
     use Illuminate\Database\Eloquent\Relations\{BelongsTo,HasMany};
 
-    class Category extends Model {
+    class PostCategory extends Model {
         use GlobalTrait;
-        protected $table = 'categories';
-        protected $fillable = ['category'];
+        protected $table = 'posts_categories';
+        protected $guarded = [];
     }

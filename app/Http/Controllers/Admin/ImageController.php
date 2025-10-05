@@ -2,19 +2,24 @@
     namespace App\Http\Controllers\Admin;
 
     use App\Http\Controllers\Controller;
+    use App\Http\Traits\GlobalTrait;
     use App\Models\{Image,User};
     use App\Http\Requests\ImageRequest;
     use Illuminate\Support\Facades\{Auth,Redirect};
     use Illuminate\Support\Str;
 
     class ImageController extends Controller {
+        Use GlobalTrait;
         public function index(){
-            $user = Auth::user();
+            $user = $this->getCurrentUser();
             $images = Image::userID($user->id)->with('user')->orderBy('images.created_at', 'DESC')->paginate(16);
             return view('admin/images/index', compact('images','user'));
         }
 
-        public function upload(){return view('admin/images/upload');}
+        public function upload(){
+            $user = $this->getCurrentUser();
+            return view('admin/images/upload',compact('user'));
+        }
 
         public function store(ImageRequest $request){
             $request->validated();

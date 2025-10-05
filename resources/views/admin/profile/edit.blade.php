@@ -24,7 +24,7 @@
                         <div class="card rounded-4 border-top border-4 border-primary border-gradient-1">
                             <div class="card-body p-4">
                                 <div class="d-flex align-items-start justify-content-between mb-3"><h5 class="mb-0 fw-bold">Editar Perfil</h5></div>
-                                <form class="row g-4" action="{{ route('profile.update', Auth::user()->id) }}" method="POST" enctype="multipart/form-data">
+                                <form class="row g-4" action="{{ route('profile.update', $user->id) }}" method="POST" enctype="multipart/form-data">
                                     @csrf
 
                                     @method('PATCH')

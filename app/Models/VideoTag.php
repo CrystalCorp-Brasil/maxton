@@ -5,8 +5,8 @@
     use Illuminate\Database\Eloquent\Model;
     use Illuminate\Database\Eloquent\Relations\{BelongsTo,HasMany};
 
-    class TagsVideo extends Model {
+    class VideoTag extends Model {
         use GlobalTrait;
-        protected $table = 'tags_videos';
-        protected $fillable = ['tag'];
+        protected $table = 'videos_tags';
+        protected $guarded = [];
     }

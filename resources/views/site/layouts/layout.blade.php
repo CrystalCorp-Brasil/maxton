@@ -17,7 +17,7 @@
     </head>
     <body class="overflow-hidden-x">
         @include('site.layouts.navbar')
-        <main class="main min-vh-100" id="top">
+        <main class="main min-vh-100 card" id="top">
             @include('site.layouts.preLoader')
 @yield('content')
         </main>

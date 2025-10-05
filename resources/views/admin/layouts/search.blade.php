@@ -1,4 +1,4 @@
-@if (Auth::user()->level != 'user')
+@if ($user->level != 'user')
                     <div class="position-relative">
                         <form action="{{ route('icons.index') }}" method="GET">
                             @csrf

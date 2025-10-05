@@ -1,4 +1,4 @@
-            <section class="bg-black-russian p-5" id="Register">
+            <section class="p-5" id="Register" style="background-image:url({{ asset('images/dev/body-background-1.jpg') }});">
                 <div class="container-fluid">
                     <div class="row" data-zanim-timeline="{}" data-zanim-trigger="scroll">
                         <div class="col-lg-6 py-0 position-relative">
@@ -17,7 +17,7 @@
                                     </div>
                                     <div class="overflow-hidden">
                                         <div class="mt-3 mt-lg-5" data-zanim-xs='{"delay":0.6}'>
-                                            <a class="btn btn-a-link-1 btn-rounded" href="{{ route('register') }}">Criar uma Conta</a>
+                                            <a class="btn btn-a-link-1" href="{{ route('register') }}">Criar uma Conta</a>
                                             <h6 class="fw-normal mt-2 text-body-tertiary">Já tem uma conta?
                                                 <a class="text-body-highlight fw-bold ml-2" href="{{ route('login') }}">Logar<span class="d-inline-block ms-1">&xrarr;</span></a>
                                             </h6>

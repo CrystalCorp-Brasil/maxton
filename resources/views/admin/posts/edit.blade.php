@@ -4,7 +4,7 @@
         <link href="{{ asset('plugins/summernote/summernote-bs5.css') }}" rel="stylesheet" type="text/css"/>
 @endsection
 @section('content')
-                <div class="card mt-4">
+                <div class="card w-100 rounded-1 rounded-4 border-top border-4 border-info border-gradient1 mt-4">
                     <div class="card-body">
                         <div class="product-table">
                             <div class="block block-rounded">
@@ -16,7 +16,7 @@
 
                                                 @method('PUT')
 
-                                                <div class="row bg-grd-deep-blue p-2 rounded mb-4">
+                                                <div class="row p-2 rounded mb-4">
                                                     <div class="mb-3">
                                                         <label for="title" class="form-label">Título</label>
                                                         <input type="text" class="form-control" id="title" name="title" value="{{ old('title',$post->title) }}" placeholder="Título da Publicação">
@@ -31,21 +31,21 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="row bg-grd-deep-blue p-2 rounded mb-4">
+                                                <div class="row p-2 rounded mb-4">
                                                     <label for="bio" class="form-label">Matéria</label>
-                                                    <textarea id="summernote" name="subject">{!! $post->subject !!}</textarea>
+                                                    <textarea id="summernote" name="subject">{!! $post->content !!}</textarea>
                                                 </div>
-                                                <div class="row bg-grd-deep-blue p-2 rounded mb-4">
+                                                <div class="row p-2 rounded mb-4">
                                                     <div class="mb-3">
                                                         <label for="image" class="form-label">Capa da Publicação</label>
                                                         <input type="file" class="form-control" id="image" name="image" accept="image/*" onchange="document.getElementById('preview').src = window.URL.createObjectURL(this.files[0]);document.getElementById('preview').style.display = 'block';" value="{{ $post->image }}">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="preview" class="form-label text-center">Preview</label>
-                                                        <div class="text-center"><img src="{{ asset($post->image) }}" id="preview" alt="Image Preview" width="70%"/></div>
+                                                        <div class="text-center"><img src="{{ asset($post->image) }}" class="rounded-4" id="preview" alt="Image Preview" width="70%"/></div>
                                                     </div>
                                                 </div>
-                                                <div class="row bg-grd-deep-blue p-2 rounded mb-4">
+                                                <div class="row p-2 rounded mb-4">
                                                     <button type="submit" class="btn btn-grd-success text-dark">Publicar</button>
                                                 </div>
                                             </form>

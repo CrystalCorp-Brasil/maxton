@@ -2,25 +2,27 @@
     namespace App\Http\Controllers\Admin;
 
     use App\Http\Controllers\Controller;
-    use App\Models\{Category,User};
+    use App\Http\Traits\GlobalTrait;
+    use App\Models\{Char,PostCategory,User};
     use Illuminate\Http\{Request};
-    use Illuminate\Support\Facades\{Auth, Redirect};
+    use Illuminate\Support\Facades\{Redirect};
     use Illuminate\View\View;
 
     class DashboardController extends Controller {
+        Use GlobalTrait;
         public function dashboard(Request $request): View {
-            $user = Auth::user();
-            return view('admin/dashboard/index', \compact('user'));
+            $user = $this->getCurrentUser();
+            return view('admin/dashboard/index', compact('user'));
         }
 
         public function category(): View {
-            $cats = Category::all();
+            $cats = PostCategory::all();
             return view('admin/categories/index', \compact('cats'));
         }
 
         public function storeCategory(Request $request){
             $request->validate(['category' => ['required','string','max:255'],]);
-            $cat = Category::create([
+            $cat = PostCategory::create([
                 'category' => $request->category
             ]);
             return Redirect::route('category.index')->with('success','Categoria cadastrada com sucesso!');

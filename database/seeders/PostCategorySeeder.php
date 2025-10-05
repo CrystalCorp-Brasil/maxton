@@ -5,9 +5,9 @@
     use Illuminate\Database\Seeder;
     use Illuminate\Support\Facades\DB as FacadesDB;
 
-    class CategorySeeder extends Seeder {
+    class PostCategorySeeder extends Seeder {
         public function run(): void {
-            FacadesDB::table('categories')->insert([
+            FacadesDB::table('posts_categories')->insert([
                 ['category'=>'Editoriais',],
                 ['category'=>'Projetos',],
                 ['category'=>'Dicas',],

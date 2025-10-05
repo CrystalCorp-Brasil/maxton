@@ -5,5 +5,5 @@
 
     class Icon extends Model {
         protected $table = 'icons';
-        protected $fillable = ['title','class'];
+        protected $guarded = [];
     }

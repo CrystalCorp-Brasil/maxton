@@ -25,7 +25,7 @@
                 </div>
             </section>
             <div id="target-down"></div>
-            <section>
+            <section class="card">
                 <div class="container-fluid px-5">
                     <div class="row">
                         <div class="col-lg-12">
@@ -35,14 +35,14 @@
                     </div>
                     <div class="row mb-5">
 @foreach($links as $link)
-                        <div class="col-lg-4 mt-5"><img class="h-lg-100 w-100 rounded fit-cover" src="{{ asset($link->image) }}" alt="O Plano de Brainiac"/></div>
-                        <div class="col-lg-2 ps-lg-4 ps-xl-1 mt-4 mt-lg-5">
+                        <div class="col-lg-4 mt-5 card p-2"><img class="h-lg-100 w-100 rounded fit-cover" src="{{ asset($link->image) }}" alt="O Plano de Brainiac"/></div>
+                        <div class="col-lg-2 mt-5 card p-2">
                             <div class="badge border border-warning text-warning mb-2 font-secondary"><span class="fas fa-star me-1"></span>{{ $link->tag }}</div>
                             <h5 class="my-5">{{ $link->title }}</h5>
-                            <p class="lead font-secondary mt-5"><small>{{ Str::limit($link->resume,100,'...') }}</small></p>
+                            <p class="lead font-secondary my-3"><small>{{ Str::limit($link->resume,100,'...') }}</small></p>
                             Postado por:
-                            <div class="badge border border-info text-info mb-2 font-secondary"><span class="fas fa-user me-1"></span>{{ $link->user->username }}</div><br>
-                            <div class="text-center"><a class="btn btn-info w-100 rounded mt-1" href="{{ $link->link }}" target="_blank"><i class="fab fa-youtube-square"></i>&nbsp;&emsp14;assista</a></div>
+                            <div class="badge border border-info text-info my-2 font-secondary"><span class="fas fa-user me-1"></span>{{ $link->user->username }}</div><br>
+                            <div class="text-center"><a class="btn btn-primary w-100 rounded mt-1" href="{{ $link->link }}" target="_blank"><i class="fab fa-youtube-square"></i>&nbsp;&emsp14;assista</a></div>
                         </div>
 @endforeach
                     </div>

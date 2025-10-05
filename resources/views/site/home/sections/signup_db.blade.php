@@ -1,4 +1,4 @@
-            <section class="bg-black-russian p-5" id="signUpDB">
+            <section class="p-5" id="signUpDB" style="background-image:url({{ asset('images/dev/body-background-7.jpg') }});">
                 <div class="container-fluid">
                     <div class="row flex-center">
                         <div class="col-md-6 offset-md-1">

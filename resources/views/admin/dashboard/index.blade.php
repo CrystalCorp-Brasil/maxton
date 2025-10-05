@@ -4,10 +4,10 @@
                 <div class="row">
                     @include('admin.dashboard.sections.welcome')
                     @include('admin.dashboard.sections.comments')
-@if (Auth::user()->level != 'user')
+@if ($user->level != 'user')
                     @include('admin.dashboard.sections.posts')
                     <div class="col-xl-6 col-xxl-4 d-flex align-items-stretch">
-                        <div class="card w-100 rounded-4">
+                        <div class="card w-100 rounded-1 rounded-4 border-top border-4 border-info border-gradient1">
                             <div class="card-body">
                                 <div class="text-center"><h6 class="mb-0">Monthly Revenue</h6></div>
                                 <div class="mt-4" id="chart5"></div>
@@ -23,7 +23,7 @@
                         </div>
                     </div>
                     <div class="col-xl-6 col-xxl-4 d-flex align-items-stretch">
-                        <div class="card w-100 rounded-4">
+                        <div class="card w-100 rounded-1 rounded-4 border-top border-4 border-info border-gradient1">
                             <div class="card-body">
                                 <div class="d-flex flex-column gap-3">
                                     <div class="d-flex align-items-start justify-content-between">
@@ -65,7 +65,7 @@
                     <div class="col-xxl-4">
                         <div class="row">
                             <div class="col-md-6 d-flex align-items-stretch">
-                                <div class="card w-100 rounded-4">
+                                <div class="card w-100 rounded-1 rounded-4 border-top border-4 border-info border-gradient1">
                                     <div class="card-body">
                                         <div class="d-flex align-items-start justify-content-between mb-1">
                                             <div class="">
@@ -89,7 +89,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-6 d-flex align-items-stretch">
-                                <div class="card w-100 rounded-4">
+                                <div class="card w-100 rounded-1 rounded-4 border-top border-4 border-info border-gradient1">
                                     <div class="card-body">
                                         <div class="d-flex align-items-start justify-content-between mb-1">
                                             <div class="">
@@ -113,7 +113,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card rounded-4">
+                        <div class="card w-100 rounded-1 rounded-4 border-top border-4 border-info border-gradient1">
                             <div class="card-body">
                                 <div class="d-flex align-items-center gap-3 mb-2">
                                     <div class=""><h3 class="mb-0">85,247</h3></div>
@@ -127,7 +127,7 @@
                         </div>
                     </div>
                     <div class="col-xl-6 col-xxl-4 d-flex align-items-stretch">
-                        <div class="card w-100 rounded-4">
+                        <div class="card w-100 rounded-1 rounded-4 border-top border-4 border-info border-gradient1">
                             <div class="card-body">
                                 <div class="d-flex align-items-start justify-content-between mb-3">
                                     <div class=""><h6 class="mb-0 fw-bold">Campaign Stats</h6></div>
@@ -216,7 +216,7 @@
                         </div>
                     </div>
                     <div class="col-xl-6 col-xxl-4 d-flex align-items-stretch">
-                        <div class="card w-100 rounded-4">
+                        <div class="card w-100 rounded-1 rounded-4 border-top border-4 border-info border-gradient1">
                             <div class="card-body">
                                 <div id="chart8"></div>
                                 <div class="d-flex align-items-center gap-3 mt-4">
@@ -251,7 +251,7 @@
                         </div>
                     </div>
                     <div class="col-xl-6 col-xxl-4 d-flex align-items-stretch">
-                        <div class="card w-100 rounded-4">
+                        <div class="card w-100 rounded-1 rounded-4 border-top border-4 border-info border-gradient1">
                             <div class="card-body">
                                 <div class="d-flex align-items-start justify-content-between mb-3">
                                     <div class=""><h5 class="mb-0 fw-bold">Social Leads</h5></div>
@@ -340,7 +340,7 @@
                         </div>
                     </div>
                     <div class="col-xl-6 col-xxl-4 d-flex align-items-stretch">
-                        <div class="card w-100 rounded-4">
+                        <div class="card w-100 rounded-1 rounded-4 border-top border-4 border-info border-gradient1">
                             <div class="card-header border-0 p-3 border-bottom">
                                 <div class="d-flex align-items-start justify-content-between">
                                     <div class=""><h5 class="mb-0">New Users</h5></div>
@@ -428,7 +428,7 @@
                         </div>
                     </div>
                     <div class="col-lg-12 col-xxl-8 d-flex align-items-stretch">
-                        <div class="card w-100 rounded-4">
+                        <div class="card w-100 rounded-1 rounded-4 border-top border-4 border-info border-gradient1">
                             <div class="card-body">
                                 <div class="d-flex align-items-start justify-content-between mb-3">
                                     <div class=""><h5 class="mb-0">Recent Orders</h5></div>

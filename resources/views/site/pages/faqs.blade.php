@@ -2,7 +2,7 @@
 @section('headTitle')Perguntas Frequentes @endsection
 @section('content')
             @include('site.layouts.header')
-            <section class="font-secondary">
+            <section class="font-secondary card">
                 <div class="container-fluid px-5">
                     <div class="row">
                         <div class="col-12">
@@ -23,7 +23,7 @@
                                     <div class="card-body">
                                         <div class="tab-content" id="v-pills-tabContent">
                                             <div class="tab-pane fade show active" id="v-pills-gen-ques" role="tabpanel" aria-labelledby="v-pills-gen-ques-tab">
-                                                <h4 class="card-title mb-5">Perguntas Gerais</h4>
+                                                <h4 class="card-title text-light mb-5">Perguntas Gerais</h4>
                                                 <div class="faq-box d-flex mb-4">
                                                     <div class="flex-shrink-0 me-3 faq-icon"><i class="bx bx-help-circle font-size-20 text-success"></i></div>
                                                     <div class="flex-grow-1">
@@ -68,7 +68,7 @@
                                                 </div>
                                             </div>
                                             <div class="tab-pane fade" id="v-pills-privacy" role="tabpanel" aria-labelledby="v-pills-privacy-tab">
-                                                <h4 class="card-title mb-5">CrystalCorp Brasil</h4>
+                                                <h4 class="card-title text-light mb-5">CrystalCorp Brasil</h4>
                                                 <div class="faq-box d-flex mb-4">
                                                     <div class="flex-shrink-0 me-3 faq-icon"><i class="bx bx-help-circle font-size-20 text-success"></i></div>
                                                     <div class="flex-grow-1">
@@ -106,7 +106,7 @@
                                                 </div>
                                             </div>
                                             <div class="tab-pane fade" id="v-pills-support" role="tabpanel" aria-labelledby="v-pills-support-tab">
-                                                <h4 class="card-title mb-5">Suporte</h4>
+                                                <h4 class="card-title text-light mb-5">Suporte</h4>
                                                 <div class="faq-box d-flex mb-4">
                                                     <div class="flex-shrink-0 me-3 faq-icon"><i class="bx bx-help-circle font-size-20 text-success"></i></div>
                                                     <div class="flex-grow-1">

@@ -11,6 +11,7 @@
 /.phpunit.cache
 /.vscode
 /.zed
+/app/*.txt
 /auth.json
 /node_modules
 /public/build
@@ -23,6 +24,7 @@
 /public/storage
 /public/uploads
 /public/webfonts
+/routes/*.txt
 /storage/*.key
 /storage/pail
 /vendor

@@ -9,10 +9,10 @@
     class Post extends Model {
         use HasFactory, GlobalTrait;
         protected $table = 'posts';
-        protected $fillable = ['title','slug','category_id','subject','image'];
+        protected $guarded = [];
 
         public function user(): BelongsTo {
             return $this->belongsTo(User::class);
         }
-        
+
     }

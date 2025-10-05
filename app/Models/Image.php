@@ -8,7 +8,7 @@
     class Image extends Model {
         use HasFactory, GlobalTrait;
         protected $table = 'images';
-        protected $fillable = ['title','slug','image','user_id'];
+        protected $guarded = [];
 
         public function user(): BelongsTo {
             return $this->belongsTo(User::class);

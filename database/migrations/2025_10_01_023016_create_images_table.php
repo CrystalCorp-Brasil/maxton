@@ -14,27 +14,9 @@
                 $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
                 $table->timestamps();
             });
-            Schema::create('tags_videos', function (Blueprint $table) {
-                $table->id();
-                $table->string('tag');
-                $table->timestamps();
-            });
-            Schema::create('links_yt', function (Blueprint $table) {
-                $table->id();
-                $table->string('title');
-                $table->string('slug');
-                $table->string('image');
-                $table->longText('resume');
-                $table->string('tag');
-                $table->string('link');
-                $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-                $table->timestamps();
-            });
         }
 
         public function down(): void {
             Schema::dropIfExists('images');
-            Schema::dropIfExists('tags_videos');
-            Schema::dropIfExists('links_yt');
         }
     };

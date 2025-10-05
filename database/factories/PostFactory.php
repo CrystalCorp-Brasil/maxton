@@ -1,7 +1,7 @@
 <?php
     namespace Database\Factories;
 
-    use App\Models\{Category,Image,User};
+    use App\Models\{PostCategory,Image,User};
     use Illuminate\Database\Eloquent\Factories\Factory;
     use Illuminate\Support\Str;
     class PostFactory extends Factory {
@@ -11,8 +11,8 @@
             return [
                 'title'=>$title,
                 'slug'=>Str::slug($title),
-                'subject'=>$this->faker->paragraph(),
-                'category'=>Category::pluck('category')->random(),
+                'content'=>$this->faker->paragraph(),
+                'category'=>PostCategory::pluck('category')->random(),
                 'image'=>Image::pluck('image')->random(),
                 'user_id'=>User::pluck('id')->random(),
             ];
