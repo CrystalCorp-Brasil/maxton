@@ -3,15 +3,15 @@
 @section('content')
             @include('site.layouts.header')
             <section class="py-0">
-                <div class="container-fluid">
+                <div class="container-fluid bg-trans-crystal pt-4 mt-3">
                     <div class="row justify-content-between">
                         <div class="col d-none d-lg-block p-0">
-                            <div class="col-lg-12 p-6 card">
+                            <div class="col-lg-12 p-6">
                                 <p class="wow fadeInUp mt-5 text-justify" data-wow-delay=".2s">Seja bem-vindo à CrystalCorp Brasil.</p>
                                 <p class="wow fadeInUp mt-15 text-justify" data-wow-delay=".6s">Leia com atenção todos os termos abaixo.</p>
                                 <p class="wow fadeInUp text-justify" data-wow-delay=".8s">Este documento, e todo o conteúdo do site é oferecido por <span class="text-info">CRYSTALCORP BRASIL</span>, neste termo representado apenas por <span class="text-info">CORPORAÇÃO</span>, que regulamenta todos os direitos e obrigações com todos que acessam o site, denominado neste termo como <span class="text-green">VISITANTE</span>, reguardado todos os direitos previstos na legislação, trazem as cláusulas abaixo como requisito para acesso e visita do mesmo, situado no endereço <a href="{{ route('home') }}" class="text-decoration-none">{{ route('home') }}</a>.</p>
                                 <p class="wow fadeInUp text-justify" data-wow-delay=".8s">A permanência no website implica-se automaticamente na leitura e aceitação tácita do presente termos de uso a seguir. Este termo foi atualizado pela última vez em 14 de setembro de 2021.</p>
-                                <div class="accordion" id="accordionExample">
+                                <div class="accordion bg-trans-crystal py-5 mt-3" id="accordionExample">
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="heading1"><button class="accordion-button fw-black" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1"> 1. DA FUNÇÃO DO SITE</button></h2>
                                         <div class="accordion-collapse collapse show" id="collapse1" aria-labelledby="heading1" data-bs-parent="#accordionExample">

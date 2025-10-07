@@ -4,7 +4,7 @@
         <link href="{{ asset('plugins/summernote/summernote-bs5.css') }}" rel="stylesheet" type="text/css"/>
 @endsection
 @section('content')
-                <div class="card rounded-4">
+                <div class="bg-trans-crystal pt-4">
                     <div class="card-body p-4">
                         <div class="position-relative mb-5">
                             <img src="assets/images/gallery/profile-cover.png" class="img-fluid rounded-4 shadow" alt="">
@@ -21,7 +21,7 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <div class="card rounded-4 border-top border-4 border-primary border-gradient-1">
+                        <div class="bg-trans-crystal pt-4 mt-4">
                             <div class="card-body p-4">
                                 <div class="d-flex align-items-start justify-content-between mb-3"><h5 class="mb-0 fw-bold">Editar Perfil</h5></div>
                                 <form class="row g-4" action="{{ route('profile.update', $user->id) }}" method="POST" enctype="multipart/form-data">

@@ -13,32 +13,20 @@
             );
         }
 
-        public function charsLikes(): HasMany {
-            return $this->hasMany(CharLike::class);
-        }
+        public function charsLikes(): HasMany {return $this->hasMany(CharLike::class);}
 
         public function like(?User $user = null, $liked = true) {
-            if (!$user) {
-                $user = Auth::user();
-            }
+            if (!$user) {$user = Auth::user();}
             $this->charsLikes()->updateOrCreate(
-                [
-                    'user_id' => $user ? $user->id : null,
-                    'char_id' => $this->id
-                ],
+                ['user_id' => $user ? $user->id : null,'char_id' => $this->id],
                 ['liked' => $liked]
             );
         }
 
         public function dislike(?User $user = null, $liked = false) {
-            if (!$user) {
-                $user = Auth::user();
-            }
+            if (!$user) {$user = Auth::user();}
             $this->charsLikes()->updateOrCreate(
-                [
-                    'user_id' => $user ? $user->id : null,
-                    'char_id' => $this->id
-                ],
+                ['user_id' => $user ? $user->id : null,'char_id' => $this->id],
                 ['liked' => $liked]
             );
         }
@@ -50,15 +38,7 @@
 
         public function isDislikedBy(?User $user): bool {
             if (!$user) {return false;}
-            return $user->charsLikes->where('char_id', $this->id)->where('liked', false)->count() > 0;
-        }
-
-        public function removeLikeDislike(?User $user = null) {
-            if (!$user) {$user = Auth::user();}
-            $this->charsLikes()->where([
-                'user_id' => $user ? $user->id : null,
-                'char_id' => $this->id
-            ])->delete();
+            return $user->charsdislike->where('char_id', $this->id)->where('liked', false)->count() > 0;
         }
     }
 

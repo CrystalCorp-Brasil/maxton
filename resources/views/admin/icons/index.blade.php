@@ -5,7 +5,7 @@
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-6 g-3">
 @foreach ($family as $icon)
                     <div class="col">
-                        <div class="d-flex align-items-center flex-column gap-3 theme-icons py-5 cursor-pointer rounded-1 rounded-4 border-top border-4 border-info border-gradient1">
+                        <div class="d-flex align-items-center flex-column gap-3 theme-icons cursor-pointer bg-trans-crystal pt-4">
                             <div><i class="{{ $icon->class }}"></i></div>
                             <div class="ms-2 text-capitalize text-bold fs-5"><span>{{ str_replace('-', ' ', $icon->title) }}</span></div>
                             <pre id="{{ $icon->id }}-iconCode" style="display: none"><code>&lt;i class="{{ $icon->class }}"&gt;&lt;/i&gt;</code></pre>

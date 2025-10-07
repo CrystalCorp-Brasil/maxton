@@ -4,11 +4,11 @@
                 <div class="row g-3">
                     <div class="col-2 offset-10">
                         <div class="d-flex align-items-center gap-2 justify-content-lg-end">
-                            <button type="button" class="btn btn-grd-success px-4" ><a href="{{ route('char.create') }}" class="text-dark"><i class="bi bi-plus-lg me-2"></i>Personagens</a></button>
+                            <button type="button" class="btn btn-grd-success px-4" ><a href="{{ route('char.create') }}" class="text-dark"><i class="bi bi-plus-lg me-2"></i>Personagem</a></button>
                         </div>
                     </div>
                 </div>
-                <div class="card w-100 rounded-1 rounded-4 border-top border-4 border-info border-gradient1 mt-5">
+                <div class="bg-trans-crystal pt-4 mt-3">
                     <div class="card-body">
                         <div class="product-table">
                             <div class="table-responsive white-space-nowrap">

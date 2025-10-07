@@ -15,12 +15,6 @@
                 $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
                 $table->timestamps();
             });
-            Schema::create('chars_images', function (Blueprint $table) {
-                $table->id();
-                $table->string ('image');
-                $table->foreignId('char_id')->constrained('chars')->onDelete('cascade');
-                $table->timestamps();
-            });
             Schema::create('chars_likes', function (Blueprint $table) {
                 $table->id();
                 $table->foreignId('user_id')->constrained('users')->onDelete('cascade');

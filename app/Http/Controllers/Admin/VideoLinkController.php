@@ -18,8 +18,9 @@
 
         public function upload(){
             $user = $this->getCurrentUser();
+            $helper = 'videoUpload';
             $tags = VideoTag::all();
-            return view('admin/videos/upload',compact('tags','user'));
+            return view('admin/videos/upload',compact('helper','tags','user'));
         }
 
         public function store(VideoLinkRequest $request){

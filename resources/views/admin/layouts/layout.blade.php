@@ -22,7 +22,7 @@
         <main class="{{ $mainClass }}">
             <div class="main-content">
 @if ($pageActive != 'auth')
-                <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+                <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3 bg-trans-crystal">
                     <div class="breadcrumb-title pe-3">Dashboard</div>
                     <div class="ps-3">
                         <nav aria-label="breadcrumb">
@@ -39,6 +39,9 @@
         </main>
         <div class="overlay btn-toggle"></div>
         <footer class="page-footer"><p class="mb-0">Copyright © 2025. All right reserved.</p></footer>
+@isset($helper)
+@yield('helper') @else
+@endif
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/sweetalert2.min.js') }}"></script>
@@ -52,19 +55,8 @@
         <script src="{{ asset('js/admin/pace.min.js') }}"></script>
         <script> $(".data-attributes span").peity("donut") </script>
         <script src="{{ asset('js/admin/main.js') }}"></script>
-        <script src="{{ asset('js/admin/dashboard1.js') }}"></script>
-        <script> new PerfectScrollbar(".user-list") </script>
 @endif
 @yield('scripts')
-        <script>
-            var tooltipInit = function tooltipInit() {
-                var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-                tooltipTriggerList.map(function (tooltipTriggerEl) {
-                    return new window.bootstrap.Tooltip(tooltipTriggerEl, {trigger: 'hover'});
-                });
-            };
-            docReady(tooltipInit);
-        </script>
         @include('components.mySweetAlertMessages')
 
     </body>

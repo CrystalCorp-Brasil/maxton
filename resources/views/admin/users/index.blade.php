@@ -1,7 +1,7 @@
 @extends('admin.layouts.layout',['pageActive'=>'dashboard','pageTitle'=>'Usuários','classBody'=>'pace-done','mainClass'=>'main-wrapper'])
 @section('headTitle')Usuários @endsection
 @section('content')
-                    <div class="card mt-4">
+                    <div class="bg-trans-crystal pt-4">
                         <div class="card-body">
                             <div class="product-table">
                                 <div class="table-responsive white-space-nowrap">

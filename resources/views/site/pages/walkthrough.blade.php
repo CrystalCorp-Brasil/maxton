@@ -25,8 +25,8 @@
                 </div>
             </section>
             <div id="target-down"></div>
-            <section class="card">
-                <div class="container-fluid px-5">
+            <section class="p-0 m-0">
+                <div class="container-fluid px-5 bg-trans-crystal pt-4 mt-3">
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="text-decoration-underline d-inline fs-5 fs-md-4">passo a passo</h1>
@@ -35,8 +35,8 @@
                     </div>
                     <div class="row mb-5">
 @foreach($links as $link)
-                        <div class="col-lg-4 mt-5 card p-2"><img class="h-lg-100 w-100 rounded fit-cover" src="{{ asset($link->image) }}" alt="O Plano de Brainiac"/></div>
-                        <div class="col-lg-2 mt-5 card p-2">
+                        <div class="col-lg-4 mt-5 p-2 bg-trans-crystal"><img class="h-lg-100 w-100 rounded fit-cover" src="{{ asset($link->image) }}" alt="O Plano de Brainiac"/></div>
+                        <div class="col-lg-2 mt-5 p-2 bg-trans-crystal">
                             <div class="badge border border-warning text-warning mb-2 font-secondary"><span class="fas fa-star me-1"></span>{{ $link->tag }}</div>
                             <h5 class="my-5">{{ $link->title }}</h5>
                             <p class="lead font-secondary my-3"><small>{{ Str::limit($link->resume,100,'...') }}</small></p>

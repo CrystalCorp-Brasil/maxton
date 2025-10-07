@@ -2,7 +2,7 @@
 @section('headTitle')Galeria de Imagens @endsection
 @section('content')
             @include('site.layouts.header')
-            <section class="mt-5 mt-lg-0 py-lg-7 px-5 card" id="Gallery">
+            <section class="mt-5 mt-lg-0 py-lg-7 px-5 bg-trans-crystal pt-4 mt-3" id="Gallery">
                 <div class="container-fluid">
                     <div class="row mb-5 mb-lg-7">
                         <div class="col-lg-6">
@@ -17,7 +17,7 @@
                     </ul>
                     <div class="row g-3 mt-2" id="portfolio-gallery" data-zanim-timeline="{}" data-zanim-trigger="scroll" data-isotope='{"layoutMode":"packery"}'>
 @forelse ($images as $image)
-                        <div class="col-6 col-md-3 isotope-item {{ $image->user->level }}">
+                        <div class="col-6 col-md-3 bg-trans-crystal pt-4 mt-3 isotope-item {{ $image->user->level }}">
                             <a href="#!" data-bp="{{ asset($image->image) }}" data-bigpicture='{"gallery":"#portfolio-gallery"}' data-caption="{{ $image->slug }}">
                                 <img class="rounded w-100 fit-cover" src="{{ asset($image->image) }}" alt="{{ $image->title }}" data-zanim-xs='{"animation":"zoom-in","delay":0.2}'/>
                             </a>
@@ -26,7 +26,7 @@
                             </div>
                         </div>
 @empty
-                        <div class="col-md-12 pt-4 text-center"><h4 class="font-secondary">Ainda não temos Imagens publicadas!</h4></div>
+                        <div class="col-md-12 pt-4 text-center bg-trans-crystal pt-4 mt-3"><h4 class="font-secondary">Ainda não temos Imagens publicadas!</h4></div>
 @endforelse
                         {{ $images->appends(request()->query())->links() }}
                     </div>

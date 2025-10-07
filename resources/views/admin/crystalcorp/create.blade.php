@@ -4,7 +4,7 @@
     <link href="{{ asset('plugins/summernote/summernote-bs5.css') }}" rel="stylesheet" type="text/css"/>
 @endsection
 @section('content')
-                <div class="card w-100 rounded-1 rounded-4 border-top border-4 border-info border-gradient1 mt-4">
+                <div class="bg-trans-crystal pt-4">
                     <div class="card-body">
                         <div class="product-table">
                             <div class="block block-rounded">
@@ -52,6 +52,9 @@
                         </div>
                     </div>
                 </div>
+@endsection
+@section('helper')
+        @include('admin.components.settings')
 @endsection
 @section('scripts')
     <script src="{{ asset('plugins/summernote/summernote-bs5.js') }}"></script>

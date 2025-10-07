@@ -1,7 +1,7 @@
 @extends('admin.layouts.layout',['pageTitle'=>'Excluir Perfil','pageActive'=>'dashboard','classBody'=>'pace-done','mainClass'=>'main-wrapper'])
 @section('headTitle')Excluir Perfil @endsection
 @section('content')
-                <div class="card rounded-4">
+                <div class="bg-trans-crystal pt-4">
                     <div class="card-body p-4">
                         <div class="position-relative mb-5">
                             <img src="assets/images/gallery/profile-cover.png" class="img-fluid rounded-4 shadow" alt="">
@@ -18,7 +18,7 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <div class="card rounded-4 border-top border-4 border-primary border-gradient-1">
+                        <div class="bg-trans-crystal pt-4 mt-4">
                             <div class="card-body p-4">
                                 <header>
                                     <div class="d-flex align-items-start justify-content-between mb-3"><h2 class="mb-0 fw-bold">{{ __('Delete Account') }}</h2></div>

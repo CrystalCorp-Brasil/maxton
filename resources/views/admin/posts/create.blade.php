@@ -4,7 +4,7 @@
     <link href="{{ asset('plugins/summernote/summernote-bs5.css') }}" rel="stylesheet" type="text/css"/>
 @endsection
 @section('content')
-                <div class="card w-100 rounded-1 rounded-4 border-top border-4 border-info border-gradient1 mt-4">
+                <div class="bg-trans-crystal pt-4 mt-4">
                     <div class="card-body">
                         <div class="product-table">
                             <div class="block block-rounded">
@@ -20,7 +20,8 @@
                                                 <div class="row my-4 rounded mb-4">
                                                     <div class="mb-3">
                                                         <label for="title" class="form-label">Título</label>
-                                                        <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}" placeholder="Título da Publicação">
+                                                        <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}" placeholder="Título da Publicação" maxlength="25">
+                                                        <p class="mt-3">Limite de caracteres <span class="text-danger">25</span>. Disponível: <span class="text-info" id="counterTitle">0</span></p>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="category" class="form-label">Categoria</label>
@@ -58,15 +59,20 @@
                     </div>
                 </div>
 @endsection
+@section('helper')
+        @include('admin.components.settings')
+@endsection
 @section('scripts')
-    <script src="{{ asset('plugins/summernote/summernote-bs5.js') }}"></script>
-    <script>
-        $(function() {
-            $('#summernote').summernote({
-                placeholder: 'Digite sua publicação',
-                tabsize: 2,
-                height: 500,
+        <script src="{{ asset('plugins/summernote/summernote-bs5.js') }}"></script>
+        <script>
+            $(function() {$('#summernote').summernote({placeholder: 'Digite sua publicação',tabsize: 2,height: 500,});});
+        </script>
+        <script>
+            $(document).on("input", "#title", function () {
+                var caracteresRestantes = 25;
+                var caracteresDigitados = parseInt($(this).val().length);
+                var caracteresRestantes = caracteresRestantes - caracteresDigitados;
+                $("#counterTitle").text(caracteresRestantes);
             });
-        });
-    </script>
+        </script>
 @endsection

@@ -72,7 +72,7 @@
         }
 
         public function likeDestroy(Char $char){
-            $char->removeLikeDislike(auth()->user());
+            $char->dislike(auth()->user());
             return redirect()->route('char.show', $char->slug);
         }
     }

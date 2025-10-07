@@ -3,7 +3,7 @@
 @section('content')
                 <div class="row">
                     <div class="col-12 col-lg-4 d-flex">
-                        <div class="card w-100">
+                        <div class="bg-trans-crystal pt-4">
                             <div class="card-body">
                                 <div class="position-relative">
                                     <img src="{{ asset('images/admin/crystalcorp2.png') }}" class="img-fluid rounded" alt="">
@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-lg-8 d-flex">
-                        <div class="card w-100">
+                        <div class="bg-trans-crystal pt-4 w-100">
                             <div class="card-body">
                                 <h5 class="mb-3">Biografia</h5>
                                 <div class="customer-notes mb-3">

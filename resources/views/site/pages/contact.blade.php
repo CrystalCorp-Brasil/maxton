@@ -5,11 +5,11 @@
 @endsection
 @section('content')
             <section class="py-0" id="page-contact">
-                <div class="container-fluid">
+                <div class="container-fluid bg-trans-main">
                     <div class="row">
-                        <div class="col-lg-6 bg-body pt-5 pb-4 card">
+                        <div class="col-lg-6 bg-body pt-5 pb-4 bg-trans-main">
                             <div class="row h-100 flex-center">
-                                <div class="col-lg-8 rounded-3" data-zanim-lg='{"animation":"slide-left","delay":0.6}' data-zanim-trigger="scroll">
+                                <div class="col-lg-8 rounded-3 bg-trans-crystal p-5" data-zanim-lg='{"animation":"slide-left","delay":0.6}' data-zanim-trigger="scroll">
                                     <h1 class="text-decoration-underline d-inline-block mb-4 mb-lg-6">contato</h1>
                                     <p class="fw-bold mb-4">E-mail:<span class="ms-2 fw-normal fst-italic"><a class="text-body" href="mailto:admin@crystalcorp.com.br">admin@crystalcorp.com.br</a></span></p>
                                     <h3 class="mt-7">Envie-nos uma mensagem</h3>

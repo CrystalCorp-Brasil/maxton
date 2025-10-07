@@ -8,7 +8,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card w-100 rounded-1 rounded-4 border-top border-4 border-info border-gradient1 mt-5">
+                <div class="bg-trans-crystal pt-4 mt-3">
                     <div class="card-body">
                         <div class="product-table">
                             <div class="table-responsive white-space-nowrap">

@@ -9,7 +9,7 @@
                                 <div class="bg-holder" style="background-image:url({{ asset($char->image) }});" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-right","delay":0.4}'></div>
                             </div>
                         </div>
-                        <div class="col-xl-5 py-5 card text-justify p-3">
+                        <div class="col-xl-5 py-5 text-justify p-3 bg-trans-crystal pt-4 mt-3">
                             <div class="row h-100">
                                 <div class="col-lg-12">
                                     <div class="row justify-content-center" data-zanim-timeline="{}" data-zanim-trigger="scroll">
@@ -28,16 +28,17 @@
                                             <div class="overflow-hidden"><p data-zanim-xs='{"delay":0.5}'>{{ $char->user->username }}</p></div>
                                             <div class="overflow-hidden">
                                                 <div data-zanim-xs='{"delay":0.6}'>
+@if(Auth::check())
                                                     <h6 class="text-uppercase ls mt-4">Deixe seu like.</h6>
                                                     <div class="mt-3 fs-10">
-@auth
-@if ($char->isLikedBy(auth()->user()))
+@switch(($char->isLikedBy(auth()->user())))
+@case($char->likes ?: 0)
                                                         <div class="d-flex justify-content-center align-items-center gap-3">
                                                             <div>
                                                                 <form action="{{ route('like.char',$char->id) }}" method="POST">
                                                                     @csrf
 
-                                                                    <button class="btn btn-success btn-xs border mx-2" type="submit"><i class="fa-2x i-Like-2 mr-2"></i>{{ $char->likes ?: 0 }}</button>
+                                                                    <button class="btn btn-primary btn-xs border mx-2" type="submit"><i class="fa-2x i-Like-2 mr-2"></i>{{ $char->likes ?: 0 }}</button>
                                                                 </form>
                                                             </div>
                                                             <div>
@@ -50,7 +51,8 @@
                                                                 </form>
                                                             </div>
                                                         </div>
-@else
+@break
+@case($char->dislikes ?: 0)
                                                         <div class="d-flex justify-content-center align-items-center gap-3">
                                                             <div>
                                                                 <form action="{{ route('like.char',$char->id) }}" method="POST">
@@ -65,25 +67,50 @@
 
                                                                     @method('DELETE')
 
-                                                                    <button class="btn btn-danger btn-xs border mx-2" type="submit"><i class="fa-2x i-Unlike-2 mr-2"></i>{{ $char->likes ?: 0 }}</button>
+                                                                    <button class="btn btn-outline-secondary btn-xs border mx-2" type="submit"><i class="fa-2x i-Unlike-2 mr-2"></i>{{ $char->dislikes ?: 0 }}</button>
                                                                 </form>
                                                             </div>
                                                         </div>
-@endif
-@else
-                                                        <span class="btn btn-success btn-xs border mr-2"><i class="fa-2x i-Like-2 mr-2"></i>{{ $char->likes ?: 0 }}</span>
-                                                        <span class="btn btn-danger btn-xs border ml-2"><i class="fa-2x i-Unlike-2 mr-2"></i>{{ $char->dislikes ?: 0 }}</span>
-                                                        <p><small>Você precisa estar logado para deixar seu Like ou deslike.</small></p>
-@endauth
+@break
+@default
+                                                        <div class="d-flex justify-content-center align-items-center gap-3">
+                                                            <div>
+                                                                <form action="{{ route('like.char',$char->id) }}" method="POST">
+                                                                    @csrf
+
+                                                                    <button class="btn btn-outline-secondary btn-xs border mx-2" type="submit"><i class="fa-2x i-Like-2 mr-2"></i>{{ $char->likes ?: 0 }}</button>
+                                                                </form>
+                                                            </div>
+                                                            <div>
+                                                                <form action="{{ route('dislike.char',$char->id) }}" method="POST">
+                                                                    @csrf
+
+                                                                    @method('DELETE')
+
+                                                                    <button class="btn btn-primary btn-xs border mx-2" type="submit"><i class="fa-2x i-Unlike-2 mr-2"></i>{{ $char->dislikes ?: 0 }}</button>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+@endswitch
                                                     </div>
+@endif
+@if(!Auth::check())
+                                                    <hr class="text-white">
+                                                    <h5>Você precisa estar logado para deixar seu Like ou Deslike.</h5>
+                                                    <div class="d-flex justify-content-center align-items-center gap-3">
+                                                        <span class="badge bg-primary border mr-2"><i class="fa-2x i-Like-2 mr-2"></i>{{ $char->likes ?: 0 }}</span>
+                                                        <span class="badge bg-primary border ml-2"><i class="fa-2x i-Unlike-2 mr-2"></i>{{ $char->dislikes ?: 0 }}</span>
+                                                    </div>
+@endif
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <hr class="text-white">
-                                    <button class="btn btn-a-link-1 text-bold ml-2" onclick="history.back()"><span class="d-inline-block ms-1">&xlarr;</span>&nbsp; Voltar</button>
+                                    <div><a href="{{ route('chars') }}" class="btn btn-a-link-1 text-bold ml-2">&xlarr;</span>&nbsp; Voltar</a></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+@endsection

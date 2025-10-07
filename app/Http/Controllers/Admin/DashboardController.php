@@ -16,8 +16,10 @@
         }
 
         public function category(): View {
+            $user = $this->getCurrentUser();
+            $helper = 'catUpload';
             $cats = PostCategory::all();
-            return view('admin/categories/index', \compact('cats'));
+            return view('admin/categories/index', \compact('cats','helper','user'));
         }
 
         public function storeCategory(Request $request){

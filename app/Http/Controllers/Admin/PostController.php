@@ -21,8 +21,9 @@
         public function create() {
             $user = $this->getCurrentUser();
             $cats = PostCategory::all();
+            $helper = 'postUpload';
             $posts = Post::userID($user->id)->with('user')->orderBy('posts.created_at', 'DESC')->get();
-            return \view ('admin/posts/create', compact('cats','posts','user'));
+            return \view ('admin/posts/create', compact('cats','helper','posts','user'));
         }
 
         public function store(PostRequest $request){

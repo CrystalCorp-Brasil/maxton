@@ -4,7 +4,7 @@
     use App\Http\Controllers\Controller;
     use App\Http\Requests\{CharRequest,CharUploadRequest};
     use App\Http\Traits\GlobalTrait;
-    use App\Models\{Char,User};
+    use App\Models\{Char,Image,User};
     use Illuminate\Http\{RedirectResponse,Request};
     use Illuminate\Support\Facades\{Auth,Redirect,Storage};
     use Illuminate\Support\Str;
@@ -15,13 +15,14 @@
         public function index() {
             $user = $this->getCurrentUser();
             $chars = Char::userID($user->id)->with('user')->withCharsLikes()->orderBy('chars.updated_at', 'DESC')->paginate(20);
-            return view ('admin/crystalcorp/index', compact('chars','user'));
+            return \view ('admin/crystalcorp/index', compact('chars','user'));
         }
 
         public function create() {
             $user = $this->getCurrentUser();
+            $helper = 'charUpload';
             $chars = Char::userID($user->id)->with('user')->orderBy('chars.created_at', 'DESC')->get();
-            return \view ('admin/crystalcorp/create', compact('chars','user'));
+            return \view ('admin/crystalcorp/create', compact('chars','helper','user'));
         }
 
         public function store(CharRequest $request){
@@ -32,9 +33,9 @@
             if($request->hasFile('image')) {
                 $file = $request->file('image');
                 $fileImg = $user->id.'-'.$slug.'-'.rand(1,99).'.'.$file->getClientOriginalExtension();
-                $request->user()->image = 'uploads/images/'.$user->id.'/'.$fileImg;
-                $file->move(public_path('uploads/images/'.$user->id), $fileImg);
-                $char->image = 'uploads/images/'.$user->id.'/'.$fileImg;
+                $request->user()->image = 'uploads/users/'.$user->id.'/chars'.'/'.$fileImg;
+                $file->move(public_path('uploads/users/'.$user->id.'/chars'.'/'), $fileImg);
+                $char->image = 'uploads/users/'.$user->id.'/chars'.'/'.$fileImg;
             }
             $char->nick = $request->nick;
             $char->slug = $slug;
@@ -42,6 +43,13 @@
             $char->bio = $request->bio;
             $char->user_id = $request->user_id;
             $char->save();
+
+            $char->images()->create([
+                'title' => $request->nick,
+                'slug' => $slug,
+                'image' => 'uploads/users/'.$user->id.'/chars'.'/'.$fileImg,
+                'user_id' => $request->user_id
+        ]);
             return Redirect::route('chars.index')->with('success','Personagem adicionado com sucesso!');
         }
 
@@ -60,15 +68,21 @@
                 }
                 $file = $request->file('image');
                 $fileImg = $char->user_id.'-'.$slug.'-'.rand(1,99).'.'.$file->getClientOriginalExtension();
-                $request->user()->image = 'uploads/images/'.$char->user_id.'/'.$fileImg;
-                $file->move(public_path('uploads/images/'.$char->user_id), $fileImg);
-                $char->image = 'uploads/images/'.$char->user_id.'/'.$fileImg;
+                $request->user()->image = 'uploads/users/'.$char->user->id.'/chars'.'/'.$fileImg;
+                $file->move(public_path('uploads/users/'.$char->user->id.'/chars'.'/'), $fileImg);
+                $char->image = 'uploads/users/'.$char->user->id.'/chars'.'/'.$fileImg;
             }
             $char->nick = $request->nick;
             $char->slug = $slug;
             $char->name = $request->name;
             $char->bio = $request->bio;
             $char->save();
+
+            $char->images()->update([
+                'title' => $request->nick,
+                'slug' => $slug,
+                'image' => $char->image
+        ]);
             return Redirect::route('chars.index')->with('success','Edição gravada com sucesso!');
         }
 

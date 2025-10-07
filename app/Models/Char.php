@@ -14,7 +14,7 @@
             return $this->belongsTo(User::class);
         }
 
-        public function charImages(): HasMany {
-            return $this->hasMany(CharImage::class);
+        public function Images(): HasMany {
+            return $this->hasMany(Image::class);
         }
     }

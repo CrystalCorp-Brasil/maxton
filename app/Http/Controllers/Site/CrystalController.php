@@ -3,11 +3,11 @@
 
     use App\Http\Controllers\Controller;
     use App\Models\{Char};
-    use App\Http\Traits\GlobalTrait;
+    use App\Http\Traits\{CharLikeableTrait,GlobalTrait};
     use Illuminate\Support\Facades\{Auth,Cookie};
 
     class CrystalController extends Controller {
-        Use GlobalTrait;
+        Use CharLikeableTrait,GlobalTrait;
         public function chars(){
             $user = $this->getCurrentUser();
             $pageTitle = 'Personagens';

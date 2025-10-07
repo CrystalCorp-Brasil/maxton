@@ -12,6 +12,7 @@
                 $table->string('image');
                 $table->integer('visits')->default(0);
                 $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+                $table->foreignId('char_id')->constrained('chars')->onDelete('cascade')->nullable();
                 $table->timestamps();
             });
         }

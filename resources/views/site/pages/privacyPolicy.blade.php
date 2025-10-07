@@ -3,16 +3,16 @@
 @section('content')
             @include('site.layouts.header')
             <section class="py-0">
-                <div class="container-fluid">
+                <div class="container-fluid bg-trans-crystal pt-4 mt-3">
                     <div class="row justify-content-between">
                         <div class="col d-none d-lg-block p-0">
-                            <div class="col-lg-12 p-6 card">
+                            <div class="col-lg-12 p-6">
                                 <p class="wow fadeInUp mt-5 text-justify" data-wow-delay=".2s">Seja bem-vindo à CrystalCorp Brasil.</p>
                                 <p class="wow fadeInUp mt-15 text-justify" data-wow-delay=".6s">Na <span class="text-info">CrystalCorp</span>, privacidade e segurança são prioridades e nos comprometemos com a transparência do tratamento de dados pessoais dos nossos <span class="text-green">usuários</span>/<span class="text-green">clientes</span>.</p>
                                 <p class="wow fadeInUp mt-15 text-justify" data-wow-delay=".6s">Por isso, esta presente <span class="text-warning">Política de Privacidade</span> estabelece como é feita a coleta, uso e transferência de informações de <span class="text-green">clientes</span> ou outras pessoas que acessam ou usam nosso site.</p>
                                 <p class="wow fadeInUp text-justify" data-wow-delay=".6s">Ao utilizar nossos serviços, você entende que coletaremos e usaremos suas informações pessoais nas formas descritas nesta <span class="text-warning">Política</span>, sob as normas da <span class="text-danger">Constituição Federal de 1988 (art. 5º, LXXIX; e o art. 22º, XXX – incluídos pela EC 115/2022)</span>, das normas de <span class="text-danger">Proteção de Dados (LGPD, Lei Federal 13.709/2018)</span>, das disposições consumeristas da <span class="text-danger">Lei Federal 8078/1990</span> e as demais normas do ordenamento jurídico brasileiro aplicáveis.</p>
                                 <p class="wow fadeInUp text-justify" data-wow-delay=".6s">Dessa forma, a <span class="text-info">NHOJunior Design</span>, doravante denominada simplesmente como “CrystalCorp”, inscrita no CNPJ/MF sob o nº <span class="text-info">21.897.767/0001-35</span>, no papel de <span class="text-warning">Controladora de Dados</span>, obriga-se ao disposto na presente <span class="text-warning">Política de Privacidade</span></p>.
-                                <div class="accordion" id="accordionExample">
+                                <div class="accordion bg-trans-crystal pt-4 mt-3" id="accordionExample">
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="heading1"><button class="accordion-button fw-black" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1"> 1. Quais dados coletamos sobre você e para qual finalidade?</button></h2>
                                         <div class="accordion-collapse collapse show" id="collapse1" aria-labelledby="heading1" data-bs-parent="#accordionExample">
