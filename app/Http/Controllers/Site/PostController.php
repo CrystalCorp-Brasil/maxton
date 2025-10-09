@@ -32,7 +32,11 @@
             $cats = PostCategory::all();
             $posts = Post::catSlug($post->slug)->with('user')->orderBy('created_at', 'DESC')->get();
             $visits = Post::with('user')->orderBy('visits', 'DESC')->limit(6)->get();
-            if (!Cookie::has($post->id) && !Auth::check()) {
+            if (!Cookie::has($post->id) && Auth::check() && Auth::user()->level == 'user') {
+                Cookie::queue($post->id, 'counter-views', 24 * 60); // 24 horas
+                $post->visits += 1;
+                $post->save();
+            } elseif (!Cookie::has($post->id) && !Auth::check()) {
                 Cookie::queue($post->id, 'counter-views', 24 * 60);
                 $post->visits += 1;
                 $post->save();

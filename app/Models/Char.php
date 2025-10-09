@@ -1,20 +1,18 @@
 <?php
     namespace App\Models;
 
-    use App\Http\Traits\{CharLikeableTrait,GlobalTrait};
+    use App\Http\Traits\{LikeableTrait,GlobalTrait};
     use Illuminate\Database\Eloquent\Model;
     use Illuminate\Database\Eloquent\Relations\{BelongsTo,HasMany};
 
     class Char extends Model {
-        use CharLikeableTrait, GlobalTrait;
+        use LikeableTrait, GlobalTrait;
         protected $table = 'chars';
         protected $guarded = [];
 
-        public function user(): BelongsTo {
-            return $this->belongsTo(User::class);
-        }
+        public function user(): BelongsTo {return $this->belongsTo(User::class);}
 
-        public function Images(): HasMany {
-            return $this->hasMany(Image::class);
-        }
+        public function Images(): HasMany {return $this->hasMany(Image::class);}
+
+        public function getRouteKeyName() {return 'slug';}
     }

@@ -35,7 +35,7 @@
                                                 </div>
                                                 <div class="row my-4 rounded mb-4">
                                                     <label for="bio" class="form-label">Matéria</label>
-                                                    <textarea id="summernote" name="subject"></textarea>
+                                                    <textarea id="summernote" name="content"></textarea>
                                                 </div>
                                                 <div class="row my-4 rounded mb-4">
                                                     <div class="mb-3">

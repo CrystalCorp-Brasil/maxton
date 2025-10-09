@@ -29,7 +29,6 @@
         <script src="{{ asset('js/site/isotope.pkgd.min.js') }}"></script>
         <script src="{{ asset('js/site/packery-mode.pkgd.min.js') }}"></script>
         <script src="{{ asset('js/site/BigPicture.js') }}"></script>
-        <script src="{{ asset('js/site/rellax.min.js') }}"></script>
         <script src="{{ asset('js/site/all.min.js') }}"></script>
         <script src="{{ asset('js/site/lodash.min.js') }}"></script>
         <script src="{{ asset('js/site/polyfill.min.js') }}"></script>
@@ -38,6 +37,7 @@
         <script src="{{ asset('js/site/customEase.js') }}"></script>
         <script src="{{ asset('js/site/drawSVGPlugin.js') }}"></script>
         <script src="{{ asset('js/site/theme.js') }}"></script>
+        <script src="{{ asset('js/site/likes.js') }}"></script>
 @yield('scripts')
     </body>
 </html>

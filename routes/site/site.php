@@ -1,9 +1,6 @@
 <?php
-// Exemplo: no topo de um service provider
-file_put_contents(__DIR__.'/../log_inclusoes.txt', "Carregando AppServiceProvider...\n", FILE_APPEND);
-
-    use App\Http\Controllers\Admin\DashboardController;
-    use App\Http\Controllers\Site\{CrystalController,PostController,RootController};
+    use App\Http\Controllers\Admin\{CrystalController,DashboardController};
+    use App\Http\Controllers\Site\{CharController,PostController,RootController};
     use Illuminate\Support\Facades\Route;
 
     Route::get('teste', function() {return view('emails/cerberus');});
@@ -18,8 +15,6 @@ file_put_contents(__DIR__.'/../log_inclusoes.txt', "Carregando AppServiceProvide
         Route::get('/contato', 'contact')->name('contact');
         Route::post('/contato', 'sendMail')->name('sendMail');
         Route::get('/contato', 'contact')->name('contact');
-        Route::post('personagem/like/{char}', 'likeStore')->name('like.char');
-        Route::delete('personagem/like/{char}', 'likeDestroy')->name('dislike.char');
 
     });
 
@@ -30,7 +25,7 @@ file_put_contents(__DIR__.'/../log_inclusoes.txt', "Carregando AppServiceProvide
         Route::get('/projeto/{project:slug}', 'show')->name('project.show');
     });
 
-    Route::controller(CrystalController::class)->group(function () {
+    Route::controller(CharController::class)->group(function () {
         Route::get('/personagens', 'chars')->name('chars');
         Route::get('/personagem/{char:slug}', 'show')->name('char.show');
     });

@@ -3,7 +3,7 @@
 
     use App\Http\Controllers\Controller;
     use App\Http\Requests\{CharRequest,CharUploadRequest};
-    use App\Http\Traits\GlobalTrait;
+    use App\Http\Traits\{GlobalTrait,LikeableTrait};
     use App\Models\{Char,Image,User};
     use Illuminate\Http\{RedirectResponse,Request};
     use Illuminate\Support\Facades\{Auth,Redirect,Storage};
@@ -11,10 +11,11 @@
     use Illuminate\View\View;
 
     class CrystalController extends Controller {
-        Use GlobalTrait;
+        use GlobalTrait,LikeableTrait;
+
         public function index() {
             $user = $this->getCurrentUser();
-            $chars = Char::userID($user->id)->with('user')->withCharsLikes()->orderBy('chars.updated_at', 'DESC')->paginate(20);
+            $chars = Char::userID($user->id)->with('user')->withLikes()->orderBy('chars.updated_at', 'DESC')->paginate(20);
             return \view ('admin/crystalcorp/index', compact('chars','user'));
         }
 

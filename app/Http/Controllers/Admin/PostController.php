@@ -42,7 +42,7 @@
             $post->slug = $slug;
             $post->user_id = $request->user_id;
             $post->category = $request->category;
-            $post->subject = $request->subject;
+            $post->content = $request->content;
             $post->save();
             return Redirect::route('post.index')->with('success','Publicação gravada com sucesso!');
         }
@@ -70,7 +70,7 @@
             $post->title = $request->title;
             $post->slug = $slug;
             $post->category = $request->category;
-            $post->subject = $request->subject;
+            $post->content = $request->content;
             $post->save();
             return Redirect::route('post.index')->with('success','Edição gravada com sucesso!');
         }

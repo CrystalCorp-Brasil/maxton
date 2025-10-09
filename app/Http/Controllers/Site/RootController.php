@@ -65,14 +65,4 @@
             Mail::to($validatedData['email'])->send(new MailContact($validatedData));
             return redirect()->back()->with('success', 'Obrigado pela sua mensagem, responderemos em breve!');
         }
-
-        public function likeStore(Char $char){
-            $char->like(auth()->user());
-            return redirect()->route('char.show', $char->slug);
-        }
-
-        public function likeDestroy(Char $char){
-            $char->dislike(auth()->user());
-            return redirect()->route('char.show', $char->slug);
-        }
     }

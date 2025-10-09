@@ -4,7 +4,12 @@
     use Illuminate\Foundation\Configuration\Middleware;
 
     return Application::configure(basePath: dirname(__DIR__))
-        ->withRouting(web: __DIR__.'/../routes/web.php',commands: __DIR__.'/../routes/console.php',health: '/up',)
-        ->withMiddleware(function (Middleware $middleware): void {})
-        ->withExceptions(function (Exceptions $exceptions): void {})
-        ->create();
+        ->withRouting(
+            web: __DIR__.'/../routes/web.php',
+            api: ['path' => __DIR__ . '/../routes/api.php','prefix' => 'api',],
+            commands: __DIR__.'/../routes/console.php',
+            health: '/up',
+        )->withMiddleware(function (Middleware $middleware): void { // 👇 habilita Sanctum para as requisições API com cookie (Breeze clássico)
+            $middleware->api(prepend: [\Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,]);
+        })->withExceptions(function (Exceptions $exceptions): void {
+        })->create();

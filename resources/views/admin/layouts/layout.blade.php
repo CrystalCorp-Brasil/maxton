@@ -48,7 +48,6 @@
 @if ($pageActive != 'auth')
         <script src="{{ asset('js/admin/perfect-scrollbar.js') }}"></script>
         <script src="{{ asset('js/admin/metisMenu.min.js') }}"></script>
-        <script src="{{ asset('js/admin/apexcharts.min.js') }}"></script>
         <script src="{{ asset('js/admin/simplebar.min.js') }}"></script>
         <script src="{{ asset('js/admin/jquery.peity.min.js') }}"></script>
         <script src="{{ asset('js/lightbox.min.js') }}"></script>

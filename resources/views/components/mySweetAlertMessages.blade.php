@@ -58,7 +58,7 @@
     </script>
 @enderror
 
-@error('subject')
+@error('content')
     <script>
         Swal.fire({icon: 'error',title: 'Atenção!',text: '{{ $message }}',showConfirmButton: true,});
     </script>

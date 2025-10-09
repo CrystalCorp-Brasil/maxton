@@ -4,8 +4,8 @@
     use App\Http\Traits\GlobalTrait;
     use Illuminate\Database\Eloquent\Model;
 
-    class PostCategory extends Model {
+    class FaqCategory extends Model {
         use GlobalTrait;
-        protected $table = 'posts_categories';
+        protected $table = 'faqs_categories';
         protected $guarded = [];
     }

@@ -21,6 +21,14 @@
                 $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
                 $table->timestamps();
             });
+            Schema::create('posts_likes', function (Blueprint $table) {
+                $table->id();
+                $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+                $table->foreignId('post_id')->constrained('posts')->onDelete('cascade');
+                $table->boolean('liked');
+                $table->unique(['user_id','post_id']);
+                $table->timestamps();
+            });
             Schema::create('posts_comments', function (Blueprint $table) {
                 $table->id();
                 $table->text('comment');
@@ -33,6 +41,7 @@
         public function down(): void {
             Schema::dropIfExists('posts_categories');
             Schema::dropIfExists('posts');
+            Schema::dropIfExists('posts_likes');
             Schema::dropIfExists('posts_comments');
         }
     };

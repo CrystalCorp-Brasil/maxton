@@ -32,11 +32,19 @@
                 $table->longText('payload');
                 $table->integer('last_activity')->index();
             });
+            Schema::create('likes', function (Blueprint $table) {
+                $table->id();
+                $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+                $table->morphs('likeable');
+                $table->boolean('liked')->default(true);
+                $table->timestamps();
+            });
         }
 
         public function down(): void {
             Schema::dropIfExists('users');
             Schema::dropIfExists('password_reset_tokens');
             Schema::dropIfExists('sessions');
+            Schema::dropIfExists('likes');
         }
     };
