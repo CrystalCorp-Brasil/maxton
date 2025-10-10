@@ -3,7 +3,7 @@
     use App\Http\Controllers\Site\{CharController,PostController,RootController};
     use Illuminate\Support\Facades\Route;
 
-    Route::get('teste', function() {return view('emails/cerberus');});
+    Route::get('/laravel', function() {return view('emails/cerberus');});
     Route::controller(RootController::class)->group(function () {
         Route::get('/', 'index')->name('home');
         Route::get('/sobre-nos', 'about')->name('about');

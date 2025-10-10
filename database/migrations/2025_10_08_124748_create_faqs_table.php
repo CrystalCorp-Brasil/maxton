@@ -16,13 +16,12 @@
                 $table->string('slug');
                 $table->longText('content');
                 $table->string('category');
-                $table->foreignId('category_id')->constrained('faqs_categories')->onDelete('cascade');
                 $table->timestamps();
             });
         }
 
         public function down(): void {
-            Schema::dropIfExists('faqs_categories');
             Schema::dropIfExists('faqs');
+            Schema::dropIfExists('faqs_categories');
         }
     };

@@ -17,10 +17,10 @@
             $request->authenticate();
             $request->session()->regenerate();
             if(Auth::user()->level === 'user') {
-                return redirect()->intended(route('home', absolute: false));
+                return redirect(route('home', absolute: false));
             }
             else {
-                return redirect()->intended(route('dashboard', absolute: false));
+                return redirect(route('dashboard', absolute: false));
             }
         }
 
@@ -28,6 +28,6 @@
             Auth::guard('web')->logout();
             $request->session()->invalidate();
             $request->session()->regenerateToken();
-            return redirect()->intended(route('home'));
+            return redirect(route('home'));
         }
     }

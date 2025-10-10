@@ -61,12 +61,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="card mt-3">
-                                                    <div class="card-body">
-                                                        <div id="login-alert" class="alert alert-warning alert-dismissible fade d-none" role="alert"><i class="bi bi-exclamation-triangle"></i>Você precisa estar logado para comentar.
-                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
-                                                    </div>
-                                                        <textarea id="comment-textarea" class="form-control mb-2" rows="3" placeholder="Escreva um comentário..."></textarea>
-                                                        <button id="send-comment" class="btn btn-primary"><i class="bi bi-send"></i> Enviar</button>
+
                                                 <div id="comments-container"></div>
                                             </div>
                                         </div>

@@ -13,6 +13,7 @@
         <link href="{{ asset('favicon.png') }}" rel="icon" type="image/png" sizes="32x32">
         <link href="{{ asset('favicon.ico') }}" rel="shortcut icon" type="image/x-icon">
         <link href="{{ asset('css/site.css') }}" rel="stylesheet" type="text/css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 @yield('styles')
     </head>
     <body class="overflow-hidden-x">
@@ -37,7 +38,9 @@
         <script src="{{ asset('js/site/customEase.js') }}"></script>
         <script src="{{ asset('js/site/drawSVGPlugin.js') }}"></script>
         <script src="{{ asset('js/site/theme.js') }}"></script>
-        <script src="{{ asset('js/site/likes.js') }}"></script>
 @yield('scripts')
+        <script src="{{ asset('js/sweetalert2.min.js') }}"></script>
+        <script src="{{ asset('js/site/interactions.js') }}"></script>
+        @include('components.mySweetAlertMessages')
     </body>
 </html>

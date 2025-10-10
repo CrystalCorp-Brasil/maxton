@@ -26,7 +26,7 @@
         public function react(Request $request, $type, $slug) {
             $model = $this->resolveModel($type, $slug);
             $user = Auth::user();
-            $liked = $request->input('action') === 'like';
+            $liked = $request->input('type') === 'like';
             $model->like($user, $liked);
             return response()->json([
                 'likes' => $model->likes()->where('liked', true)->count(),
